@@ -1,6 +1,0 @@
-= Generated Data Model Documentation
-
-There are two versions of generated documentation for log records:
-
-* xref:public/data_model.adoc[Fields for public use]
-* xref:private/data_model.adoc[All fields  including those intended for logging system only]

@@ -1,8 +1,0 @@
-= Cluster Logging Architecture
-:toc: left
-
-include::overview.adoc[]
-
-include::metrics.adoc[]
-
-include::correlation.adoc[]
