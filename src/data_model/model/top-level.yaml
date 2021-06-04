@@ -6,7 +6,7 @@ namespace:
       index: true
       doc_values: false
       example: "`HAPPY`"
-      description: Original log entry text, UTF-8 encoded.
+      description: Original log entry text, UTF-8 encoded
       norms: false
     - name: "@timestamp"
       type: date
@@ -18,10 +18,10 @@ namespace:
       description: The FQDN of the entity generating the original payload. This field is a best-effort attempt to derive this context. Sometimes, the entity generating it knows it; other times, that entity has a restricted namespace itself, and the collector or normalizer knows that.
     - name: ipaddr4
       type: ip
-      description: IP address v4 of the source server. Can be an array'
+      description: The IPv4 address of the source server. Can be an array.
     - name: ipaddr6
       type: ip
-      description: IP address v6 of the source server (if available). Can be an array.
+      description: The IPv6 address of the source server, if available. Can be an array.
     - name: level
       type: keyword
       example: "`info`"
@@ -30,14 +30,14 @@ namespace:
 
         The following values come from link:http://sourceware.org/git/?p=glibc.git;a=blob;f=misc/sys/syslog.h;h=ee01478c4b19a954426a96448577c5a76e6647c0;hb=HEAD#l74[`syslog.h`], and are preceded by their http://sourceware.org/git/?p=glibc.git;a=blob;f=misc/sys/syslog.h;h=ee01478c4b19a954426a96448577c5a76e6647c0;hb=HEAD#l51[numeric equivalents]:
 
-        * `0` = `emerg`, system is unusable
-        * `1` = `alert`, action must be taken immediately
-        * `2` = `crit`, critical conditions
-        * `3` = `err`, error conditions
-        * `4` = `warn`, warning conditions
-        * `5` = `notice`, normal but significant condition
-        * `6` = `info`, informational
-        * `7` = `debug`, debug-level messages
+        * `0` = `emerg`, system is unusable.
+        * `1` = `alert`, action must be taken immediately.
+        * `2` = `crit`, critical conditions.
+        * `3` = `err`, error conditions.
+        * `4` = `warn`, warning conditions.
+        * `5` = `notice`, normal but significant condition.
+        * `6` = `info`, informational.
+        * `7` = `debug`, debug-level messages.
 
         The two following values are not part of `syslog.h` but are widely used:
 
@@ -47,25 +47,25 @@ namespace:
         Map the log levels or priorities of other logging systems to their nearest match in the preceding list. For example, from link:https://docs.python.org/2.7/library/logging.html#logging-levels[python logging], you can match `CRITICAL` with `crit`, `ERROR` with `err`, and so on.
     - name: pid
       type: keyword
-      description: This is the process ID of the logging entity, if available.
+      description: The process ID of the logging entity, if available.
     - name: service
       type: keyword
-      description: Name of the service associated with the logging entity, if available. For example, syslog's `APP-NAME` and rsyslog's `programname` properties are mapped to the service field.
+      description: The name of the service associated with the logging entity, if available. For example, syslog's `APP-NAME` and rsyslog's `programname` properties are mapped to the service field.
     - name: tags
       type: text
       doc_values: false
       index: true
       analyzer: whitespace
-      description: Optionally provided an operator-defined list of tags placed on each log by the collector or normalizer. The payload can be a string with whitespace-delimited string tokens or a JSON list of string tokens.
+      description: Optional. An operator-defined list of tags placed on each log by the collector or normalizer. The payload can be a string with whitespace-delimited string tokens or a JSON list of string tokens.
     - name: file
       type: text
       index: true
       doc_values: false
-      description: Optional path to the file containing the log entry local to the collector
+      description: Optional. A path to the file containing the log entry local to the collector.
       norms: true
     - name: offset
       type: long
-      description: The offset value can represent bytes to the start of the log line in the file (zero or one based), or log line numbers (zero or one based), so long as the values are strictly monotonically increasing in the context of a single log file. The values are allowed to wrap, representing a new version of the log file (rotation).
+      description: The offset value. Can represent bytes to the start of the log line in the file (zero- or one-based), or log line numbers (zero- or one-based), so long as the values are strictly monotonically increasing in the context of a single log file. The values are allowed to wrap, representing a new version of the log file (rotation).
     - name: namespace_name
       private: true
       type: keyword
