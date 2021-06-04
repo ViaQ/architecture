@@ -435,11 +435,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_tags">tags</a></li>
 <li><a href="#_file">file</a></li>
 <li><a href="#_offset">offset</a></li>
-<li><a href="#_namespace_name">namespace_name  ⚠</a></li>
-<li><a href="#_namespace_uuid">namespace_uuid  ⚠</a></li>
-<li><a href="#_viaq_msg_id">viaq_msg_id  ⚠</a></li>
-<li><a href="#_viaq_index_name">viaq_index_name  ⚠</a></li>
-<li><a href="#_geoip">geoip  ⚠</a></li>
+<li><a href="#_namespace_name">⚠namespace_name</a></li>
+<li><a href="#_namespace_uuid">⚠namespace_uuid</a></li>
+<li><a href="#_viaq_msg_id">⚠viaq_msg_id</a></li>
+<li><a href="#_viaq_index_name">⚠viaq_index_name</a></li>
+<li><a href="#_geoip">⚠geoip</a></li>
 <li><a href="#_kubernetes">kubernetes</a>
 <ul class="sectlevel2">
 <li><a href="#_kubernetes_pod_name">kubernetes.pod_name</a></li>
@@ -447,19 +447,100 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_kubernetes_namespace_name">kubernetes.namespace_name</a></li>
 <li><a href="#_kubernetes_namespace_id">kubernetes.namespace_id</a></li>
 <li><a href="#_kubernetes_host">kubernetes.host</a></li>
-<li><a href="#_kubernetes_master_url">kubernetes.master_url</a></li>
-<li><a href="#_kubernetes_container_name">kubernetes.container_name</a></li>
+<li><a href="#_kubernetes_master_url">⚠kubernetes.master_url</a></li>
+<li><a href="#_kubernetes_container_name">kubernetes.container_name</a>
+<ul class="sectlevel3">
+<li><a href="#_kubernetes_container_name_raw">⚠kubernetes.container_name.raw</a></li>
+</ul>
+</li>
 <li><a href="#_kubernetes_annotations">kubernetes.annotations</a></li>
-<li><a href="#_kubernetes_labels">kubernetes.labels</a></li>
-<li><a href="#_kubernetes_event">kubernetes.event</a></li>
+<li><a href="#_kubernetes_labels">kubernetes.labels</a>
+<ul class="sectlevel3">
+<li><a href="#_kubernetes_labels_deployment">kubernetes.labels.deployment</a></li>
+<li><a href="#_kubernetes_labels_deploymentconfig">kubernetes.labels.deploymentconfig</a>
+<ul class="sectlevel4">
+<li><a href="#_kubernetes_labels_deploymentconfig_raw">⚠kubernetes.labels.deploymentconfig.raw</a></li>
+</ul>
+</li>
+<li><a href="#_kubernetes_labels_component">kubernetes.labels.component</a></li>
+<li><a href="#_kubernetes_labels_provider">kubernetes.labels.provider</a></li>
+</ul>
+</li>
+<li><a href="#_kubernetes_event">kubernetes.event</a>
+<ul class="sectlevel3">
+<li><a href="#_kubernetes_event_verb">kubernetes.event.verb</a></li>
+<li><a href="#_kubernetes_event_metadata">kubernetes.event.metadata</a>
+<ul class="sectlevel4">
+<li><a href="#_kubernetes_event_metadata_name">kubernetes.event.metadata.name</a></li>
+<li><a href="#_kubernetes_event_metadata_namespace">kubernetes.event.metadata.namespace</a></li>
+<li><a href="#_kubernetes_event_metadata_selflink">kubernetes.event.metadata.selfLink</a></li>
+<li><a href="#_kubernetes_event_metadata_uid">kubernetes.event.metadata.uid</a></li>
+<li><a href="#_kubernetes_event_metadata_resourceversion">kubernetes.event.metadata.resourceVersion</a></li>
+</ul>
+</li>
+<li><a href="#_kubernetes_event_involvedobject">kubernetes.event.involvedObject</a>
+<ul class="sectlevel4">
+<li><a href="#_kubernetes_event_involvedobject_kind">kubernetes.event.involvedObject.kind</a></li>
+<li><a href="#_kubernetes_event_involvedobject_namespace">kubernetes.event.involvedObject.namespace</a></li>
+<li><a href="#_kubernetes_event_involvedobject_name">kubernetes.event.involvedObject.name</a></li>
+<li><a href="#_kubernetes_event_involvedobject_uid">kubernetes.event.involvedObject.uid</a></li>
+<li><a href="#_kubernetes_event_involvedobject_apiversion">kubernetes.event.involvedObject.apiVersion</a></li>
+<li><a href="#_kubernetes_event_involvedobject_resourceversion">kubernetes.event.involvedObject.resourceVersion</a></li>
+</ul>
+</li>
+<li><a href="#_kubernetes_event_reason">kubernetes.event.reason</a></li>
+<li><a href="#_kubernetes_event_source_component">kubernetes.event.source_component</a></li>
+<li><a href="#_kubernetes_event_firsttimestamp">kubernetes.event.firstTimestamp</a></li>
+<li><a href="#_kubernetes_event_count">kubernetes.event.count</a></li>
+<li><a href="#_kubernetes_event_type">kubernetes.event.type</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#_pipeline">pipeline</a>
 <ul class="sectlevel2">
-<li><a href="#_pipeline_version">pipeline.@version  ⚠</a></li>
-<li><a href="#_pipeline_collector">pipeline.collector  ⚠</a></li>
-<li><a href="#_pipeline_normalizer">pipeline.normalizer  ⚠</a></li>
-<li><a href="#_pipeline_trace">pipeline.trace  ⚠</a></li>
+<li><a href="#_pipeline_version">⚠pipeline.@version</a></li>
+<li><a href="#_pipeline_collector">⚠pipeline.collector</a>
+<ul class="sectlevel3">
+<li><a href="#_pipeline_collector_hostname">⚠pipeline.collector.hostname</a></li>
+<li><a href="#_pipeline_collector_name">⚠pipeline.collector.name</a></li>
+<li><a href="#_pipeline_collector_version">⚠pipeline.collector.version</a></li>
+<li><a href="#_pipeline_collector_ipaddr4">⚠pipeline.collector.ipaddr4</a>
+<ul class="sectlevel4">
+<li><a href="#_pipeline_collector_ipaddr4_raw">⚠pipeline.collector.ipaddr4.raw</a></li>
+</ul>
+</li>
+<li><a href="#_pipeline_collector_ipaddr6">⚠pipeline.collector.ipaddr6</a></li>
+<li><a href="#_pipeline_collector_inputname">⚠pipeline.collector.inputname</a></li>
+<li><a href="#_pipeline_collector_received_at">⚠pipeline.collector.received_at</a></li>
+<li><a href="#_pipeline_collector_original_raw_message">⚠pipeline.collector.original_raw_message</a>
+<ul class="sectlevel4">
+<li><a href="#_pipeline_collector_original_raw_message_raw">⚠pipeline.collector.original_raw_message.raw</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_pipeline_normalizer">⚠pipeline.normalizer</a>
+<ul class="sectlevel3">
+<li><a href="#_pipeline_normalizer_hostname">⚠pipeline.normalizer.hostname</a></li>
+<li><a href="#_pipeline_normalizer_name">⚠pipeline.normalizer.name</a></li>
+<li><a href="#_pipeline_normalizer_version">⚠pipeline.normalizer.version</a></li>
+<li><a href="#_pipeline_normalizer_ipaddr4">⚠pipeline.normalizer.ipaddr4</a>
+<ul class="sectlevel4">
+<li><a href="#_pipeline_normalizer_ipaddr4_raw">⚠pipeline.normalizer.ipaddr4.raw</a></li>
+</ul>
+</li>
+<li><a href="#_pipeline_normalizer_ipaddr6">⚠pipeline.normalizer.ipaddr6</a></li>
+<li><a href="#_pipeline_normalizer_inputname">⚠pipeline.normalizer.inputname</a></li>
+<li><a href="#_pipeline_normalizer_received_at">⚠pipeline.normalizer.received_at</a></li>
+<li><a href="#_pipeline_normalizer_original_raw_message">⚠pipeline.normalizer.original_raw_message</a>
+<ul class="sectlevel4">
+<li><a href="#_pipeline_normalizer_original_raw_message_raw">⚠pipeline.normalizer.original_raw_message.raw</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_pipeline_trace">⚠pipeline.trace</a></li>
 </ul>
 </li>
 </ul>
@@ -744,7 +825,7 @@ Data type
 <h2 id="_file">file</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Optional path to the file containing the log entry local to the collector TODO: analyzer for file paths</p>
+<p>Optional path to the file containing the log entry local to the collector</p>
 </div>
 <div class="hdlist">
 <table>
@@ -781,7 +862,7 @@ Data type
 </div>
 </div>
 <div class="sect1">
-<h2 id="_namespace_name">namespace_name  ⚠</h2>
+<h2 id="_namespace_name">⚠namespace_name</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Associate this record with the namespace that has this name. This value is not stored, it is only used to associate the record with the appropriate namespace for access control and visualization. Usually, this value is given in the tag, but if the protocol does not support sending a tag, this namespace_name field can be used. If the <code>namespace_name</code> field is present, it overrides the namespace given in the tag or in <code>kubernetes.namespace_name</code>. The format is the same as the one used by Kubernetes namespace names. See also <code>namespace_uuid</code>.</p>
@@ -809,7 +890,7 @@ Example value
 </div>
 </div>
 <div class="sect1">
-<h2 id="_namespace_uuid">namespace_uuid  ⚠</h2>
+<h2 id="_namespace_uuid">⚠namespace_uuid</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The UUID associated with the <code>namespace_name</code>. This value is not stored. It is only used to associate the record with the appropriate namespace for access control and visualization. If this field is present, it overrides the UUID given in kubernetes.namespace_uuid, and causes the Kubernetes metadata lookup to be skipped for this log record.</p>
@@ -837,7 +918,7 @@ Example value
 </div>
 </div>
 <div class="sect1">
-<h2 id="_viaq_msg_id">viaq_msg_id  ⚠</h2>
+<h2 id="_viaq_msg_id">⚠viaq_msg_id</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>A unique ID assigned to each message. The format is not specified. It may be a UUID or a Base64, or some other ASCII value. This is currently generated by <a href="https://github.com/uken/fluent-plugin-elasticsearch/tree/v1.13.2#generate-hash-id" class="bare">https://github.com/uken/fluent-plugin-elasticsearch/tree/v1.13.2#generate-hash-id</a> and is used as the <code>_id</code> of the document in Elasticsearch. The intended use of this field is that if you use another logging store or application other than Elasticsearch, but you still need to correlate data with the data stored in Elasticsearch, this field will give you the exact document corresponding to the record.</p>
@@ -865,7 +946,7 @@ Example value
 </div>
 </div>
 <div class="sect1">
-<h2 id="_viaq_index_name">viaq_index_name  ⚠</h2>
+<h2 id="_viaq_index_name">⚠viaq_index_name</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>For Elasticsearch 6.x and later, this is a name of a write index alias. The value depends on the log type of this message. Detailed documentation is found at <a href="https://github.com/openshift/enhancements/blob/master/enhancements/cluster-logging/cluster-logging-es-rollover-data-design.md#data-model" class="bare">https://github.com/openshift/enhancements/blob/master/enhancements/cluster-logging/cluster-logging-es-rollover-data-design.md#data-model</a>.</p>
@@ -896,7 +977,7 @@ Example value
 </div>
 </div>
 <div class="sect1">
-<h2 id="_geoip">geoip  ⚠</h2>
+<h2 id="_geoip">⚠geoip</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>geo-ip of the machine</p>
@@ -1012,9 +1093,9 @@ Data type
 </div>
 </div>
 <div class="sect2">
-<h3 id="_kubernetes_master_url">kubernetes.master_url</h3>
+<h3 id="_kubernetes_master_url">⚠kubernetes.master_url</h3>
 <div class="paragraph">
-<p>The Kubernetes Master URL</p>
+<p>The Kubernetes Master URL. Not useful as it is always the internal DNS alias 'https://kubernetes.default.svc'</p>
 </div>
 <div class="hdlist">
 <table>
@@ -1041,10 +1122,14 @@ Data type
 Data type
 </td>
 <td class="hdlist2">
-<p>text</p>
+<p>keyword</p>
 </td>
 </tr>
 </table>
+</div>
+<div class="sect3">
+<h4 id="_kubernetes_container_name_raw">⚠kubernetes.container_name.raw</h4>
+
 </div>
 </div>
 <div class="sect2">
@@ -1082,6 +1167,125 @@ Data type
 </tr>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_kubernetes_labels_deployment">kubernetes.labels.deployment</h4>
+<div class="paragraph">
+<p>The deployment associated with this Kubernetes object</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>logging-kibana-3</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kubernetes_labels_deploymentconfig">kubernetes.labels.deploymentconfig</h4>
+<div class="paragraph">
+<p>The deployment configuration associated with this Kubernetes object</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>logging-kibana</code></p>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_kubernetes_labels_deploymentconfig_raw">⚠kubernetes.labels.deploymentconfig.raw</h5>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kubernetes_labels_component">kubernetes.labels.component</h4>
+<div class="paragraph">
+<p>The component associated with this Kubernetes object</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>kibana</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kubernetes_labels_provider">kubernetes.labels.provider</h4>
+<div class="paragraph">
+<p>The provider associated with this Kubernetes object</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>openshift</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_kubernetes_event">kubernetes.event</h3>
@@ -1100,6 +1304,484 @@ Data type
 </tr>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_kubernetes_event_verb">kubernetes.event.verb</h4>
+<div class="paragraph">
+<p>The type of event, <code>ADDED</code>, <code>MODIFIED</code>, or <code>DELETED</code></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>ADDED</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kubernetes_event_metadata">kubernetes.event.metadata</h4>
+<div class="paragraph">
+<p>Information related to the location and time of the event creation</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>group</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_kubernetes_event_metadata_name">kubernetes.event.metadata.name</h5>
+<div class="paragraph">
+<p>The name of the object that triggered the event creation</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>java-mainclass-1.14d888a4cfc24890</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_kubernetes_event_metadata_namespace">kubernetes.event.metadata.namespace</h5>
+<div class="paragraph">
+<p>The name of the namespace that induced the event. It differs from <code>namespace_name</code>, which will be in case of every event the 'eventrouter'. TBD</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>default</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_kubernetes_event_metadata_selflink">kubernetes.event.metadata.selfLink</h5>
+<div class="paragraph">
+<p>A link to the event</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>/api/v1/namespaces/javaj/events/java-mainclass-1.14d888a4cfc24890</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_kubernetes_event_metadata_uid">kubernetes.event.metadata.uid</h5>
+<div class="paragraph">
+<p>The unique ID of the event</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>d828ac69-7b58-11e7-9cf5-5254002f560c</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_kubernetes_event_metadata_resourceversion">kubernetes.event.metadata.resourceVersion</h5>
+<div class="paragraph">
+<p>A string that identifies the server&#8217;s internal version of the event. Clients can use this string to determine when objects have changed.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>integer</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>311987</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kubernetes_event_involvedobject">kubernetes.event.involvedObject</h4>
+<div class="paragraph">
+<p>A description of the object involved in the event creation</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>group</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_kubernetes_event_involvedobject_kind">kubernetes.event.involvedObject.kind</h5>
+<div class="paragraph">
+<p>The type of object</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>ReplicationController</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_kubernetes_event_involvedobject_namespace">kubernetes.event.involvedObject.namespace</h5>
+<div class="paragraph">
+<p>The name of the namespace in which the object triggered the event. If a pod did not trigger the event, then the namespace is not the <code>kubernetes.namespace_name</code>. This is the case for every event eventrouter&#8217;s namespace. TBD</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>default</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_kubernetes_event_involvedobject_name">kubernetes.event.involvedObject.name</h5>
+<div class="paragraph">
+<p>The name of the object that triggered the event</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>java-mainclass-1</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_kubernetes_event_involvedobject_uid">kubernetes.event.involvedObject.uid</h5>
+<div class="paragraph">
+<p>The unique ID of the object</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>e6bff941-76a8-11e7-8193-5254002f560c</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_kubernetes_event_involvedobject_apiversion">kubernetes.event.involvedObject.apiVersion</h5>
+<div class="paragraph">
+<p>The version of kubernetes master API</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>v1</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_kubernetes_event_involvedobject_resourceversion">kubernetes.event.involvedObject.resourceVersion</h5>
+<div class="paragraph">
+<p>A string that identifies the server&#8217;s internal version of the pod that triggered the event. Clients can use this string to determine when objects have changed.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>308882</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kubernetes_event_reason">kubernetes.event.reason</h4>
+<div class="paragraph">
+<p>A short machine-understandable string that gives the reason for generating this event</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>SuccessfulCreate</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kubernetes_event_source_component">kubernetes.event.source_component</h4>
+<div class="paragraph">
+<p>The component that reported this event</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>replication-controller</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kubernetes_event_firsttimestamp">kubernetes.event.firstTimestamp</h4>
+<div class="paragraph">
+<p>The time at which the event was first recorded</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>date</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>2017-08-07 10:11:57.000000000 Z</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kubernetes_event_count">kubernetes.event.count</h4>
+<div class="paragraph">
+<p>The number of times this event has occurred</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>integer</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>1</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_kubernetes_event_type">kubernetes.event.type</h4>
+<div class="paragraph">
+<p>The type of event, <code>Normal</code> or <code>Warning</code>. New types could be added in the future.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>Normal</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1110,7 +1792,7 @@ Data type
 <p>Metadata related to ViaQ log collection pipeline. Everything about log collector, normalizers, mappings goes here. Data in this subgroup is stored for troublehsooting purposes mostly.</p>
 </div>
 <div class="sect2">
-<h3 id="_pipeline_version">pipeline.@version  ⚠</h3>
+<h3 id="_pipeline_version">⚠pipeline.@version</h3>
 <div class="paragraph">
 <p>Version of “com.redhat.viaq” mapping the document is intended to adhere by the normalizer. It must be set by the normalizer. The value must correspond to the [_meta][version].</p>
 </div>
@@ -1136,7 +1818,7 @@ Example value
 </div>
 </div>
 <div class="sect2">
-<h3 id="_pipeline_collector">pipeline.collector  ⚠</h3>
+<h3 id="_pipeline_collector">⚠pipeline.collector</h3>
 <div class="paragraph">
 <p>The section contains metadata specific to the collector.</p>
 </div>
@@ -1152,9 +1834,183 @@ Data type
 </tr>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_pipeline_collector_hostname">⚠pipeline.collector.hostname</h4>
+<div class="paragraph">
+<p>FQDN of the collector. It might be different from the FQDN of the actual emitter of the logs.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pipeline_collector_name">⚠pipeline.collector.name</h4>
+<div class="paragraph">
+<p>Name of the collector.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pipeline_collector_version">⚠pipeline.collector.version</h4>
+<div class="paragraph">
+<p>Version of the collector</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pipeline_collector_ipaddr4">⚠pipeline.collector.ipaddr4</h4>
+<div class="paragraph">
+<p>IP address v4 of the collector server, can be an array.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>ip</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_pipeline_collector_ipaddr4_raw">⚠pipeline.collector.ipaddr4.raw</h5>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pipeline_collector_ipaddr6">⚠pipeline.collector.ipaddr6</h4>
+<div class="paragraph">
+<p>IP address v6 of the collector server, can be an array.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>ip</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pipeline_collector_inputname">⚠pipeline.collector.inputname</h4>
+<div class="paragraph">
+<p>how the log message was received on the collector whether it was TCP/UDP, or maybe imjournal/imfile.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pipeline_collector_received_at">⚠pipeline.collector.received_at</h4>
+<div class="paragraph">
+<p>Time when the message was received at the collector.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>date</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pipeline_collector_original_raw_message">⚠pipeline.collector.original_raw_message</h4>
+<div class="paragraph">
+<p>The original non-parsed log message, collected by collector or as close to the source as possible.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>text</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_pipeline_collector_original_raw_message_raw">⚠pipeline.collector.original_raw_message.raw</h5>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_pipeline_normalizer">pipeline.normalizer  ⚠</h3>
+<h3 id="_pipeline_normalizer">⚠pipeline.normalizer</h3>
 <div class="paragraph">
 <p>The section contains metadata specific to the normalizer.</p>
 </div>
@@ -1170,9 +2026,183 @@ Data type
 </tr>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_pipeline_normalizer_hostname">⚠pipeline.normalizer.hostname</h4>
+<div class="paragraph">
+<p>FQDN of the normalizer.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pipeline_normalizer_name">⚠pipeline.normalizer.name</h4>
+<div class="paragraph">
+<p>Name of the normalizer.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pipeline_normalizer_version">⚠pipeline.normalizer.version</h4>
+<div class="paragraph">
+<p>Version of the normalizer</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pipeline_normalizer_ipaddr4">⚠pipeline.normalizer.ipaddr4</h4>
+<div class="paragraph">
+<p>IP address v4 of the normalizer server, can be an array.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>ip</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_pipeline_normalizer_ipaddr4_raw">⚠pipeline.normalizer.ipaddr4.raw</h5>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pipeline_normalizer_ipaddr6">⚠pipeline.normalizer.ipaddr6</h4>
+<div class="paragraph">
+<p>IP address v6 of the normalizer server, can be an array.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>ip</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pipeline_normalizer_inputname">⚠pipeline.normalizer.inputname</h4>
+<div class="paragraph">
+<p>how the log message was received on the normalizer whether it was TCP/UDP.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pipeline_normalizer_received_at">⚠pipeline.normalizer.received_at</h4>
+<div class="paragraph">
+<p>Time when the message was received at the collector.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>date</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pipeline_normalizer_original_raw_message">⚠pipeline.normalizer.original_raw_message</h4>
+<div class="paragraph">
+<p>The original non-parsed log message as it is received at the normalizer.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>text</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_pipeline_normalizer_original_raw_message_raw">⚠pipeline.normalizer.original_raw_message.raw</h5>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_pipeline_trace">pipeline.trace  ⚠</h3>
+<h3 id="_pipeline_trace">⚠pipeline.trace</h3>
 <div class="paragraph">
 <p>The field records the trace of the message. Each collector/normalizer appends information about itself and the date/time when the message was processed.</p>
 </div>
