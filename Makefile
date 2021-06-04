@@ -16,12 +16,12 @@ rebuild: clean all
 all: check
 
 check: docs
-ifeq (, $(shell which linkchecker))
+ifeq (, $(shell which linkchecker 2> /dev/null))
 	$(warning WARNING: linkchecker not found, skipping HTML link checks)
 else
 	linkchecker --check-extern docs/index.html
 endif
-ifeq (, $(shell which yamllint))
+ifeq (, $(shell which yamllint 2> /dev/null))
 	$(warning WARNING: yamllint not found, skipping YAML cleanliness checks)
 else
 	yamllint -f parsable -d "{spaces:2}" $(shell find -name '*.yaml')
@@ -58,6 +58,8 @@ docs/%.svg: src/%.dot
 docs/%.png: src/%.png
 	@mkdir -p $(dir $@)
 	cp $< $@
+
+src/data_model/private/data_model.adoc src/data_model/public/data_model.adoc: data_model
 
 data_model: force
 	$(MAKE) -C src/data_model all
