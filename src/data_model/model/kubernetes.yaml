@@ -22,8 +22,9 @@ namespace:
       norms: true
       description: The Kubernetes node name
     - name: master_url
+      private: true
       type: keyword
-      description: The Kubernetes Master URL
+      description: The Kubernetes Master URL. Not useful as it is always the internal DNS alias 'https://kubernetes.default.svc'
     - name: container_name
       type: keyword
       doc_values: false

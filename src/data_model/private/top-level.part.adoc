@@ -1,0 +1,213 @@
+
+The top level fields may be present in every record.
+
+
+
+=== message
+
+Original log entry text, UTF-8 encoded.
+
+[horizontal]
+Data type:: text
+
+Example value:: `HAPPY`
+
+
+
+
+
+=== @timestamp
+
+A UTC value that marks when the log payload was created or when the log payload was first collected if the creation time is not known. This value is the log processing pipeline's “best effort” determination of when the log payload was generated. The “@” prefix denotes a field that is reserved for a particular use. By default, most tools look for “@timestamp” with ElasticSearch.
+
+[horizontal]
+Data type:: date
+
+Example value:: `2015-01-24 14:06:05.071000000 Z`
+
+
+
+
+
+=== hostname
+
+The FQDN of the entity generating the original payload. This field is a best-effort attempt to derive this context. Sometimes, the entity generating it knows it; other times, that entity has a restricted namespace itself, and the collector or normalizer knows that.
+
+[horizontal]
+Data type:: keyword
+
+
+
+
+
+=== ipaddr4
+
+IP address v4 of the source server. Can be an array'
+
+[horizontal]
+Data type:: ip
+
+
+
+
+
+=== ipaddr6
+
+IP address v6 of the source server (if available). Can be an array.
+
+[horizontal]
+Data type:: ip
+
+
+
+
+
+=== level
+
+The logging level from various sources, including `rsyslog(severitytext property)`, python's logging module, and others.
+
+The following values come from link:http://sourceware.org/git/?p=glibc.git;a=blob;f=misc/sys/syslog.h;h=ee01478c4b19a954426a96448577c5a76e6647c0;hb=HEAD#l74[`syslog.h`], and are preceded by their http://sourceware.org/git/?p=glibc.git;a=blob;f=misc/sys/syslog.h;h=ee01478c4b19a954426a96448577c5a76e6647c0;hb=HEAD#l51[numeric equivalents]:
+
+* `0` = `emerg`, system is unusable
+* `1` = `alert`, action must be taken immediately
+* `2` = `crit`, critical conditions
+* `3` = `err`, error conditions
+* `4` = `warn`, warning conditions
+* `5` = `notice`, normal but significant condition
+* `6` = `info`, informational
+* `7` = `debug`, debug-level messages
+
+The two following values are not part of `syslog.h` but are widely used:
+
+* `8` = `trace`, trace-level messages, which are more verbose than `debug` messages.
+* `9` = `unknown`, when the logging system gets a value it doesn't recognize.
+
+Map the log levels or priorities of other logging systems to their nearest match in the preceding list. For example, from link:https://docs.python.org/2.7/library/logging.html#logging-levels[python logging], you can match `CRITICAL` with `crit`, `ERROR` with `err`, and so on.
+
+[horizontal]
+Data type:: keyword
+
+Example value:: `info`
+
+
+
+
+
+=== pid
+
+This is the process ID of the logging entity, if available.
+
+[horizontal]
+Data type:: keyword
+
+
+
+
+
+=== service
+
+Name of the service associated with the logging entity, if available. For example, syslog's `APP-NAME` and rsyslog's `programname` properties are mapped to the service field.
+
+[horizontal]
+Data type:: keyword
+
+
+
+
+
+=== tags
+
+Optionally provided an operator-defined list of tags placed on each log by the collector or normalizer. The payload can be a string with whitespace-delimited string tokens or a JSON list of string tokens.
+
+[horizontal]
+Data type:: text
+
+
+
+
+
+=== file
+
+Optional path to the file containing the log entry local to the collector
+
+[horizontal]
+Data type:: text
+
+
+
+
+
+=== offset
+
+The offset value can represent bytes to the start of the log line in the file (zero or one based), or log line numbers (zero or one based), so long as the values are strictly monotonically increasing in the context of a single log file. The values are allowed to wrap, representing a new version of the log file (rotation).
+
+[horizontal]
+Data type:: long
+
+
+
+
+
+=== ⚠namespace_name
+
+Associate this record with the namespace that has this name. This value is not stored, it is only used to associate the record with the appropriate namespace for access control and visualization. Usually, this value is given in the tag, but if the protocol does not support sending a tag, this namespace_name field can be used. If the `namespace_name` field is present, it overrides the namespace given in the tag or in `kubernetes.namespace_name`. The format is the same as the one used by Kubernetes namespace names. See also `namespace_uuid`.
+
+[horizontal]
+Data type:: keyword
+
+Example value:: `my-cool-project-in-lab04`
+
+
+
+
+
+=== ⚠namespace_uuid
+
+The UUID associated with the `namespace_name`. This value is not stored. It is only used to associate the record with the appropriate namespace for access control and visualization. If this field is present, it overrides the UUID given in kubernetes.namespace_uuid, and causes the Kubernetes metadata lookup to be skipped for this log record.
+
+[horizontal]
+Data type:: keyword
+
+Example value:: `82f13a8e-882a-4344-b103-f0a6f30fd218`
+
+
+
+
+
+=== ⚠viaq_msg_id
+
+A unique ID assigned to each message. The format is not specified. It may be a UUID or a Base64, or some other ASCII value. This is currently generated by https://github.com/uken/fluent-plugin-elasticsearch/tree/v1.13.2#generate-hash-id and is used as the `_id` of the document in Elasticsearch. The intended use of this field is that if you use another logging store or application other than Elasticsearch, but you still need to correlate data with the data stored in Elasticsearch, this field will give you the exact document corresponding to the record.
+
+[horizontal]
+Data type:: keyword
+
+Example value:: `82f13a8e-882a-4344-b103-f0a6f30fd218`
+
+
+
+
+
+=== ⚠viaq_index_name
+
+For Elasticsearch 6.x and later, this is a name of a write index alias. The value depends on the log type of this message. Detailed documentation is found at https://github.com/openshift/enhancements/blob/master/enhancements/cluster-logging/cluster-logging-es-rollover-data-design.md#data-model.
+
+For Elasticsearch 5.x and earlier, this is the index name by which this message will be stored in Elasticsearch. The value of this field is generated based on the source of the message. Example of the value is 'project.my-cool-project-in-lab04.748e92c2-70d7-11e9-b387-000d3af2d83b.2019.05.09'.
+
+[horizontal]
+Data type:: keyword
+
+Example value:: `container.app-write`
+
+
+
+
+
+=== ⚠geoip
+
+geo-ip of the machine
+
+[horizontal]
+Data type:: object
+
+
+

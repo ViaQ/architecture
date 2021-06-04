@@ -1,0 +1,162 @@
+
+The top level fields may be present in every record.
+
+
+
+=== message
+
+Original log entry text, UTF-8 encoded.
+
+[horizontal]
+Data type:: text
+
+Example value:: `HAPPY`
+
+
+
+
+
+=== @timestamp
+
+A UTC value that marks when the log payload was created or when the log payload was first collected if the creation time is not known. This value is the log processing pipeline's “best effort” determination of when the log payload was generated. The “@” prefix denotes a field that is reserved for a particular use. By default, most tools look for “@timestamp” with ElasticSearch.
+
+[horizontal]
+Data type:: date
+
+Example value:: `2015-01-24 14:06:05.071000000 Z`
+
+
+
+
+
+=== hostname
+
+The FQDN of the entity generating the original payload. This field is a best-effort attempt to derive this context. Sometimes, the entity generating it knows it; other times, that entity has a restricted namespace itself, and the collector or normalizer knows that.
+
+[horizontal]
+Data type:: keyword
+
+
+
+
+
+=== ipaddr4
+
+IP address v4 of the source server. Can be an array'
+
+[horizontal]
+Data type:: ip
+
+
+
+
+
+=== ipaddr6
+
+IP address v6 of the source server (if available). Can be an array.
+
+[horizontal]
+Data type:: ip
+
+
+
+
+
+=== level
+
+The logging level from various sources, including `rsyslog(severitytext property)`, python's logging module, and others.
+
+The following values come from link:http://sourceware.org/git/?p=glibc.git;a=blob;f=misc/sys/syslog.h;h=ee01478c4b19a954426a96448577c5a76e6647c0;hb=HEAD#l74[`syslog.h`], and are preceded by their http://sourceware.org/git/?p=glibc.git;a=blob;f=misc/sys/syslog.h;h=ee01478c4b19a954426a96448577c5a76e6647c0;hb=HEAD#l51[numeric equivalents]:
+
+* `0` = `emerg`, system is unusable
+* `1` = `alert`, action must be taken immediately
+* `2` = `crit`, critical conditions
+* `3` = `err`, error conditions
+* `4` = `warn`, warning conditions
+* `5` = `notice`, normal but significant condition
+* `6` = `info`, informational
+* `7` = `debug`, debug-level messages
+
+The two following values are not part of `syslog.h` but are widely used:
+
+* `8` = `trace`, trace-level messages, which are more verbose than `debug` messages.
+* `9` = `unknown`, when the logging system gets a value it doesn't recognize.
+
+Map the log levels or priorities of other logging systems to their nearest match in the preceding list. For example, from link:https://docs.python.org/2.7/library/logging.html#logging-levels[python logging], you can match `CRITICAL` with `crit`, `ERROR` with `err`, and so on.
+
+[horizontal]
+Data type:: keyword
+
+Example value:: `info`
+
+
+
+
+
+=== pid
+
+This is the process ID of the logging entity, if available.
+
+[horizontal]
+Data type:: keyword
+
+
+
+
+
+=== service
+
+Name of the service associated with the logging entity, if available. For example, syslog's `APP-NAME` and rsyslog's `programname` properties are mapped to the service field.
+
+[horizontal]
+Data type:: keyword
+
+
+
+
+
+=== tags
+
+Optionally provided an operator-defined list of tags placed on each log by the collector or normalizer. The payload can be a string with whitespace-delimited string tokens or a JSON list of string tokens.
+
+[horizontal]
+Data type:: text
+
+
+
+
+
+=== file
+
+Optional path to the file containing the log entry local to the collector
+
+[horizontal]
+Data type:: text
+
+
+
+
+
+=== offset
+
+The offset value can represent bytes to the start of the log line in the file (zero or one based), or log line numbers (zero or one based), so long as the values are strictly monotonically increasing in the context of a single log file. The values are allowed to wrap, representing a new version of the log file (rotation).
+
+[horizontal]
+Data type:: long
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

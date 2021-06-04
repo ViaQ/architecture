@@ -8,7 +8,7 @@ BROWSE ?= index.html
 		-a icons=font -a nofooter \
 		-a stylesheet=$(PWD)/css/asciidoctor.css
 DOT=dot -Tsvg
-LINKCHECKER=linkchecker --check-extern
+
 
 rebuild: clean all
 	@echo "Clean rebuild, you can commit the updated site."
@@ -16,7 +16,17 @@ rebuild: clean all
 all: check
 
 check: docs
-	$(LINKCHECKER) docs/index.html
+ifeq (, $(shell which linkchecker))
+	$(warning WARNING: linkchecker not found, skipping HTML link checks)
+else
+	linkchecker --check-extern docs/index.html
+endif
+ifeq (, $(shell which yamllint))
+	$(warning WARNING: yamllint not found, skipping YAML cleanliness checks)
+else
+	yamllint -f parsable -d "{spaces:2}" $(shell find -name '*.yaml')
+endif
+
 
 browse: docs
 	nohup xdg-open docs/$(BROWSE) &> /dev/null ; sleep 1
@@ -33,7 +43,7 @@ DOTS=$(shell find src -name '*.dot')
 HTMLS=$(patsubst src/%.adoc,docs/%.html,$(ADOCS))
 SVGS=$(patsubst src/%.dot,docs/%.svg,$(DOTS))
 
-docs: $(HTMLS) $(SVGS) $(PNG_DOCS)
+docs: $(HTMLS) $(SVGS) $(PNG_DOCS) data_model
 
 docs/%/index.html: src/%/*.adoc
 
@@ -49,7 +59,7 @@ docs/%.png: src/%.png
 	@mkdir -p $(dir $@)
 	cp $< $@
 
-# Generate data model adoc fragments needed by adoc documents.
-src/data_model/private/data_model.adoc src/data_model/public/data_model.adoc: force
+data_model: force
 	$(MAKE) -C src/data_model all
+
 .PHONY: force
