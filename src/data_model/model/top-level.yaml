@@ -15,7 +15,7 @@ namespace:
       description: A UTC value that marks when the log payload was created or, if the creation time is not known, when the log payload was first collected. The “@” prefix denotes a field that is reserved for a particular use. By default, most tools look for “@timestamp” with ElasticSearch.
     - name: hostname
       type: keyword
-      description: The FQDN of the entity generating the original payload. This field is a best-effort attempt to derive this context. Sometimes, the entity generating it knows it; other times, that entity has a restricted namespace itself, and the collector or normalizer knows that.
+      description: The name of the host where this log message originated. In a Kubernetes cluster, this is the same as `kubernetes.host`.
     - name: ipaddr4
       type: ip
       description: The IPv4 address of the source server. Can be an array.
@@ -61,7 +61,7 @@ namespace:
       type: text
       index: true
       doc_values: false
-      description: Optional. A path to the file containing the log entry local to the collector.
+      description: The path to the log file from which the collector read this log entry. Normally, this is a path in the `/var/log` file system of a cluster node.
       norms: true
     - name: offset
       type: long
