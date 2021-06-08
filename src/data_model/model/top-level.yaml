@@ -12,7 +12,7 @@ namespace:
       type: date
       format: yyyy-MM-dd HH:mm:ss,SSSZ||yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ||yyyy-MM-dd'T'HH:mm:ssZ||dateOptionalTime
       example: "`2015-01-24 14:06:05.071000000 Z`"
-      description: A UTC value that marks when the log payload was created or when the log payload was first collected if the creation time is not known. This value is the log processing pipeline's “best effort” determination of when the log payload was generated. The “@” prefix denotes a field that is reserved for a particular use. By default, most tools look for “@timestamp” with ElasticSearch.
+      description: A UTC value that marks when the log payload was created or, if the creation time is not known, when the log payload was first collected. The “@” prefix denotes a field that is reserved for a particular use. By default, most tools look for “@timestamp” with ElasticSearch.
     - name: hostname
       type: keyword
       description: The FQDN of the entity generating the original payload. This field is a best-effort attempt to derive this context. Sometimes, the entity generating it knows it; other times, that entity has a restricted namespace itself, and the collector or normalizer knows that.
