@@ -101,7 +101,7 @@ Data type:: group
 
 === kubernetes.labels
 
-Labels attached to the Kubernetes object. Each label name is a subfield of labels field. Each label name is de-dotted: dots in the name are replaced with underscores.
+Labels present on the original Kubernetes Pod
 
 [horizontal]
 Data type:: group
@@ -109,7 +109,7 @@ Data type:: group
 
 
 
-==== kubernetes.labels.deployment
+==== ⚠kubernetes.labels.deployment
 
 The deployment associated with this Kubernetes object
 
@@ -121,7 +121,7 @@ Example value:: `logging-kibana-3`
 
 
 
-==== kubernetes.labels.deploymentconfig
+==== ⚠kubernetes.labels.deploymentconfig
 
 The deployment configuration associated with this Kubernetes object
 
@@ -143,7 +143,7 @@ Data type:: keyword
 
 
 
-==== kubernetes.labels.component
+==== ⚠kubernetes.labels.component
 
 The component associated with this Kubernetes object
 
@@ -155,7 +155,7 @@ Example value:: `kibana`
 
 
 
-==== kubernetes.labels.provider
+==== ⚠kubernetes.labels.provider
 
 The provider associated with this Kubernetes object
 

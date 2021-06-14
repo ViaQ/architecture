@@ -39,7 +39,7 @@ namespace:
       description: Annotations associated with the Kubernetes object
     - name: labels
       type: group
-      description: 'Labels attached to the Kubernetes object. Each label name is a subfield of labels field. Each label name is de-dotted: dots in the name are replaced with underscores.'
+      description: 'Labels present on the original Kubernetes Pod'
       fields:
         - name: deployment
           private: true
