@@ -42,10 +42,12 @@ namespace:
       description: 'Labels attached to the Kubernetes object. Each label name is a subfield of labels field. Each label name is de-dotted: dots in the name are replaced with underscores.'
       fields:
         - name: deployment
+          private: true
           type: keyword
           example: "`logging-kibana-3`"
           description: The deployment associated with this Kubernetes object
         - name: deploymentconfig
+          private: true
           type: keyword
           example: "`logging-kibana`"
           description: The deployment configuration associated with this Kubernetes object
@@ -55,10 +57,12 @@ namespace:
               ignore_above: 64
               type: keyword
         - name: component
+          private: true
           type: keyword
           example: "`kibana`"
           description: The component associated with this Kubernetes object
         - name: provider
+          private: true
           type: keyword
           example: "`openshift`"
           description: The provider associated with this Kubernetes object
