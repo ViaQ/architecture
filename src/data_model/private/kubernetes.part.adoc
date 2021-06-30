@@ -168,7 +168,7 @@ Example value:: `openshift`
 
 
 
-=== ⚠kubernetes.event
+=== kubernetes.event
 
 The Kubernetes event obtained from the Kubernetes master API. The event is a whole JSON object nested under the `kubernetes` field. This event description loosely follows `type Event` in link:https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#event-v1-core[Event v1 core].
 
@@ -178,7 +178,7 @@ Data type:: group
 
 
 
-==== ⚠kubernetes.event.verb
+==== kubernetes.event.verb
 
 The type of event, `ADDED`, `MODIFIED`, or `DELETED`
 
@@ -190,7 +190,7 @@ Example value:: `ADDED`
 
 
 
-==== ⚠kubernetes.event.metadata
+==== kubernetes.event.metadata
 
 Information related to the location and time of the event creation
 
@@ -200,7 +200,7 @@ Data type:: group
 
 
 
-===== ⚠kubernetes.event.metadata.name
+===== kubernetes.event.metadata.name
 
 The name of the object that triggered the event creation
 
@@ -212,7 +212,7 @@ Example value:: `java-mainclass-1.14d888a4cfc24890`
 
 
 
-===== ⚠kubernetes.event.metadata.namespace
+===== kubernetes.event.metadata.namespace
 
 The name of the namespace that induced the event. It differs from `namespace_name`, which will be in case of every event the 'eventrouter'. TBD
 
@@ -224,7 +224,7 @@ Example value:: `default`
 
 
 
-===== ⚠kubernetes.event.metadata.selfLink
+===== kubernetes.event.metadata.selfLink
 
 A link to the event
 
@@ -236,7 +236,7 @@ Example value:: `/api/v1/namespaces/javaj/events/java-mainclass-1.14d888a4cfc248
 
 
 
-===== ⚠kubernetes.event.metadata.uid
+===== kubernetes.event.metadata.uid
 
 The unique ID of the event
 
@@ -248,7 +248,7 @@ Example value:: `d828ac69-7b58-11e7-9cf5-5254002f560c`
 
 
 
-===== ⚠kubernetes.event.metadata.resourceVersion
+===== kubernetes.event.metadata.resourceVersion
 
 A string that identifies the server's internal version of the event. Clients can use this string to determine when objects have changed.
 
@@ -260,7 +260,7 @@ Example value:: `311987`
 
 
 
-==== ⚠kubernetes.event.involvedObject
+==== kubernetes.event.involvedObject
 
 A description of the object involved in the event creation
 
@@ -270,7 +270,7 @@ Data type:: group
 
 
 
-===== ⚠kubernetes.event.involvedObject.kind
+===== kubernetes.event.involvedObject.kind
 
 The type of object
 
@@ -282,7 +282,7 @@ Example value:: `ReplicationController`
 
 
 
-===== ⚠kubernetes.event.involvedObject.namespace
+===== kubernetes.event.involvedObject.namespace
 
 The name of the namespace in which the object triggered the event. If a pod did not trigger the event, then the namespace is not the `kubernetes.namespace_name`. This is the case for every event eventrouter's namespace. TBD
 
@@ -294,7 +294,7 @@ Example value:: `default`
 
 
 
-===== ⚠kubernetes.event.involvedObject.name
+===== kubernetes.event.involvedObject.name
 
 The name of the object that triggered the event
 
@@ -306,7 +306,7 @@ Example value:: `java-mainclass-1`
 
 
 
-===== ⚠kubernetes.event.involvedObject.uid
+===== kubernetes.event.involvedObject.uid
 
 The unique ID of the object
 
@@ -318,7 +318,7 @@ Example value:: `e6bff941-76a8-11e7-8193-5254002f560c`
 
 
 
-===== ⚠kubernetes.event.involvedObject.apiVersion
+===== kubernetes.event.involvedObject.apiVersion
 
 The version of kubernetes master API
 
@@ -330,7 +330,7 @@ Example value:: `v1`
 
 
 
-===== ⚠kubernetes.event.involvedObject.resourceVersion
+===== kubernetes.event.involvedObject.resourceVersion
 
 A string that identifies the server's internal version of the pod that triggered the event. Clients can use this string to determine when objects have changed.
 
@@ -342,7 +342,7 @@ Example value:: `308882`
 
 
 
-==== ⚠kubernetes.event.reason
+==== kubernetes.event.reason
 
 A short machine-understandable string that gives the reason for generating this event
 
@@ -354,7 +354,7 @@ Example value:: `SuccessfulCreate`
 
 
 
-==== ⚠kubernetes.event.source_component
+==== kubernetes.event.source_component
 
 The component that reported this event
 
@@ -366,7 +366,7 @@ Example value:: `replication-controller`
 
 
 
-==== ⚠kubernetes.event.firstTimestamp
+==== kubernetes.event.firstTimestamp
 
 The time at which the event was first recorded
 
@@ -378,7 +378,7 @@ Example value:: `2017-08-07 10:11:57.000000000 Z`
 
 
 
-==== ⚠kubernetes.event.count
+==== kubernetes.event.count
 
 The number of times this event has occurred
 
@@ -390,7 +390,7 @@ Example value:: `1`
 
 
 
-==== ⚠kubernetes.event.type
+==== kubernetes.event.type
 
 The type of event, `Normal` or `Warning`. New types could be added in the future.
 

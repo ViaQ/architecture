@@ -467,33 +467,33 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_kubernetes_labels_provider">⚠kubernetes.labels.provider</a></li>
 </ul>
 </li>
-<li><a href="#_kubernetes_event">⚠kubernetes.event</a>
+<li><a href="#_kubernetes_event">kubernetes.event</a>
 <ul class="sectlevel3">
-<li><a href="#_kubernetes_event_verb">⚠kubernetes.event.verb</a></li>
-<li><a href="#_kubernetes_event_metadata">⚠kubernetes.event.metadata</a>
+<li><a href="#_kubernetes_event_verb">kubernetes.event.verb</a></li>
+<li><a href="#_kubernetes_event_metadata">kubernetes.event.metadata</a>
 <ul class="sectlevel4">
-<li><a href="#_kubernetes_event_metadata_name">⚠kubernetes.event.metadata.name</a></li>
-<li><a href="#_kubernetes_event_metadata_namespace">⚠kubernetes.event.metadata.namespace</a></li>
-<li><a href="#_kubernetes_event_metadata_selflink">⚠kubernetes.event.metadata.selfLink</a></li>
-<li><a href="#_kubernetes_event_metadata_uid">⚠kubernetes.event.metadata.uid</a></li>
-<li><a href="#_kubernetes_event_metadata_resourceversion">⚠kubernetes.event.metadata.resourceVersion</a></li>
+<li><a href="#_kubernetes_event_metadata_name">kubernetes.event.metadata.name</a></li>
+<li><a href="#_kubernetes_event_metadata_namespace">kubernetes.event.metadata.namespace</a></li>
+<li><a href="#_kubernetes_event_metadata_selflink">kubernetes.event.metadata.selfLink</a></li>
+<li><a href="#_kubernetes_event_metadata_uid">kubernetes.event.metadata.uid</a></li>
+<li><a href="#_kubernetes_event_metadata_resourceversion">kubernetes.event.metadata.resourceVersion</a></li>
 </ul>
 </li>
-<li><a href="#_kubernetes_event_involvedobject">⚠kubernetes.event.involvedObject</a>
+<li><a href="#_kubernetes_event_involvedobject">kubernetes.event.involvedObject</a>
 <ul class="sectlevel4">
-<li><a href="#_kubernetes_event_involvedobject_kind">⚠kubernetes.event.involvedObject.kind</a></li>
-<li><a href="#_kubernetes_event_involvedobject_namespace">⚠kubernetes.event.involvedObject.namespace</a></li>
-<li><a href="#_kubernetes_event_involvedobject_name">⚠kubernetes.event.involvedObject.name</a></li>
-<li><a href="#_kubernetes_event_involvedobject_uid">⚠kubernetes.event.involvedObject.uid</a></li>
-<li><a href="#_kubernetes_event_involvedobject_apiversion">⚠kubernetes.event.involvedObject.apiVersion</a></li>
-<li><a href="#_kubernetes_event_involvedobject_resourceversion">⚠kubernetes.event.involvedObject.resourceVersion</a></li>
+<li><a href="#_kubernetes_event_involvedobject_kind">kubernetes.event.involvedObject.kind</a></li>
+<li><a href="#_kubernetes_event_involvedobject_namespace">kubernetes.event.involvedObject.namespace</a></li>
+<li><a href="#_kubernetes_event_involvedobject_name">kubernetes.event.involvedObject.name</a></li>
+<li><a href="#_kubernetes_event_involvedobject_uid">kubernetes.event.involvedObject.uid</a></li>
+<li><a href="#_kubernetes_event_involvedobject_apiversion">kubernetes.event.involvedObject.apiVersion</a></li>
+<li><a href="#_kubernetes_event_involvedobject_resourceversion">kubernetes.event.involvedObject.resourceVersion</a></li>
 </ul>
 </li>
-<li><a href="#_kubernetes_event_reason">⚠kubernetes.event.reason</a></li>
-<li><a href="#_kubernetes_event_source_component">⚠kubernetes.event.source_component</a></li>
-<li><a href="#_kubernetes_event_firsttimestamp">⚠kubernetes.event.firstTimestamp</a></li>
-<li><a href="#_kubernetes_event_count">⚠kubernetes.event.count</a></li>
-<li><a href="#_kubernetes_event_type">⚠kubernetes.event.type</a></li>
+<li><a href="#_kubernetes_event_reason">kubernetes.event.reason</a></li>
+<li><a href="#_kubernetes_event_source_component">kubernetes.event.source_component</a></li>
+<li><a href="#_kubernetes_event_firsttimestamp">kubernetes.event.firstTimestamp</a></li>
+<li><a href="#_kubernetes_event_count">kubernetes.event.count</a></li>
+<li><a href="#_kubernetes_event_type">kubernetes.event.type</a></li>
 </ul>
 </li>
 </ul>
@@ -1317,7 +1317,7 @@ Example value
 </div>
 </div>
 <div class="sect2">
-<h3 id="_kubernetes_event">⚠kubernetes.event</h3>
+<h3 id="_kubernetes_event">kubernetes.event</h3>
 <div class="paragraph">
 <p>The Kubernetes event obtained from the Kubernetes master API. The event is a whole JSON object nested under the <code>kubernetes</code> field. This event description loosely follows <code>type Event</code> in <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#event-v1-core">Event v1 core</a>.</p>
 </div>
@@ -1334,7 +1334,7 @@ Data type
 </table>
 </div>
 <div class="sect3">
-<h4 id="_kubernetes_event_verb">⚠kubernetes.event.verb</h4>
+<h4 id="_kubernetes_event_verb">kubernetes.event.verb</h4>
 <div class="paragraph">
 <p>The type of event, <code>ADDED</code>, <code>MODIFIED</code>, or <code>DELETED</code></p>
 </div>
@@ -1360,7 +1360,7 @@ Example value
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kubernetes_event_metadata">⚠kubernetes.event.metadata</h4>
+<h4 id="_kubernetes_event_metadata">kubernetes.event.metadata</h4>
 <div class="paragraph">
 <p>Information related to the location and time of the event creation</p>
 </div>
@@ -1377,7 +1377,7 @@ Data type
 </table>
 </div>
 <div class="sect4">
-<h5 id="_kubernetes_event_metadata_name">⚠kubernetes.event.metadata.name</h5>
+<h5 id="_kubernetes_event_metadata_name">kubernetes.event.metadata.name</h5>
 <div class="paragraph">
 <p>The name of the object that triggered the event creation</p>
 </div>
@@ -1403,7 +1403,7 @@ Example value
 </div>
 </div>
 <div class="sect4">
-<h5 id="_kubernetes_event_metadata_namespace">⚠kubernetes.event.metadata.namespace</h5>
+<h5 id="_kubernetes_event_metadata_namespace">kubernetes.event.metadata.namespace</h5>
 <div class="paragraph">
 <p>The name of the namespace that induced the event. It differs from <code>namespace_name</code>, which will be in case of every event the 'eventrouter'. TBD</p>
 </div>
@@ -1429,7 +1429,7 @@ Example value
 </div>
 </div>
 <div class="sect4">
-<h5 id="_kubernetes_event_metadata_selflink">⚠kubernetes.event.metadata.selfLink</h5>
+<h5 id="_kubernetes_event_metadata_selflink">kubernetes.event.metadata.selfLink</h5>
 <div class="paragraph">
 <p>A link to the event</p>
 </div>
@@ -1455,7 +1455,7 @@ Example value
 </div>
 </div>
 <div class="sect4">
-<h5 id="_kubernetes_event_metadata_uid">⚠kubernetes.event.metadata.uid</h5>
+<h5 id="_kubernetes_event_metadata_uid">kubernetes.event.metadata.uid</h5>
 <div class="paragraph">
 <p>The unique ID of the event</p>
 </div>
@@ -1481,7 +1481,7 @@ Example value
 </div>
 </div>
 <div class="sect4">
-<h5 id="_kubernetes_event_metadata_resourceversion">⚠kubernetes.event.metadata.resourceVersion</h5>
+<h5 id="_kubernetes_event_metadata_resourceversion">kubernetes.event.metadata.resourceVersion</h5>
 <div class="paragraph">
 <p>A string that identifies the server&#8217;s internal version of the event. Clients can use this string to determine when objects have changed.</p>
 </div>
@@ -1508,7 +1508,7 @@ Example value
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kubernetes_event_involvedobject">⚠kubernetes.event.involvedObject</h4>
+<h4 id="_kubernetes_event_involvedobject">kubernetes.event.involvedObject</h4>
 <div class="paragraph">
 <p>A description of the object involved in the event creation</p>
 </div>
@@ -1525,7 +1525,7 @@ Data type
 </table>
 </div>
 <div class="sect4">
-<h5 id="_kubernetes_event_involvedobject_kind">⚠kubernetes.event.involvedObject.kind</h5>
+<h5 id="_kubernetes_event_involvedobject_kind">kubernetes.event.involvedObject.kind</h5>
 <div class="paragraph">
 <p>The type of object</p>
 </div>
@@ -1551,7 +1551,7 @@ Example value
 </div>
 </div>
 <div class="sect4">
-<h5 id="_kubernetes_event_involvedobject_namespace">⚠kubernetes.event.involvedObject.namespace</h5>
+<h5 id="_kubernetes_event_involvedobject_namespace">kubernetes.event.involvedObject.namespace</h5>
 <div class="paragraph">
 <p>The name of the namespace in which the object triggered the event. If a pod did not trigger the event, then the namespace is not the <code>kubernetes.namespace_name</code>. This is the case for every event eventrouter&#8217;s namespace. TBD</p>
 </div>
@@ -1577,7 +1577,7 @@ Example value
 </div>
 </div>
 <div class="sect4">
-<h5 id="_kubernetes_event_involvedobject_name">⚠kubernetes.event.involvedObject.name</h5>
+<h5 id="_kubernetes_event_involvedobject_name">kubernetes.event.involvedObject.name</h5>
 <div class="paragraph">
 <p>The name of the object that triggered the event</p>
 </div>
@@ -1603,7 +1603,7 @@ Example value
 </div>
 </div>
 <div class="sect4">
-<h5 id="_kubernetes_event_involvedobject_uid">⚠kubernetes.event.involvedObject.uid</h5>
+<h5 id="_kubernetes_event_involvedobject_uid">kubernetes.event.involvedObject.uid</h5>
 <div class="paragraph">
 <p>The unique ID of the object</p>
 </div>
@@ -1629,7 +1629,7 @@ Example value
 </div>
 </div>
 <div class="sect4">
-<h5 id="_kubernetes_event_involvedobject_apiversion">⚠kubernetes.event.involvedObject.apiVersion</h5>
+<h5 id="_kubernetes_event_involvedobject_apiversion">kubernetes.event.involvedObject.apiVersion</h5>
 <div class="paragraph">
 <p>The version of kubernetes master API</p>
 </div>
@@ -1655,7 +1655,7 @@ Example value
 </div>
 </div>
 <div class="sect4">
-<h5 id="_kubernetes_event_involvedobject_resourceversion">⚠kubernetes.event.involvedObject.resourceVersion</h5>
+<h5 id="_kubernetes_event_involvedobject_resourceversion">kubernetes.event.involvedObject.resourceVersion</h5>
 <div class="paragraph">
 <p>A string that identifies the server&#8217;s internal version of the pod that triggered the event. Clients can use this string to determine when objects have changed.</p>
 </div>
@@ -1682,7 +1682,7 @@ Example value
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kubernetes_event_reason">⚠kubernetes.event.reason</h4>
+<h4 id="_kubernetes_event_reason">kubernetes.event.reason</h4>
 <div class="paragraph">
 <p>A short machine-understandable string that gives the reason for generating this event</p>
 </div>
@@ -1708,7 +1708,7 @@ Example value
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kubernetes_event_source_component">⚠kubernetes.event.source_component</h4>
+<h4 id="_kubernetes_event_source_component">kubernetes.event.source_component</h4>
 <div class="paragraph">
 <p>The component that reported this event</p>
 </div>
@@ -1734,7 +1734,7 @@ Example value
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kubernetes_event_firsttimestamp">⚠kubernetes.event.firstTimestamp</h4>
+<h4 id="_kubernetes_event_firsttimestamp">kubernetes.event.firstTimestamp</h4>
 <div class="paragraph">
 <p>The time at which the event was first recorded</p>
 </div>
@@ -1760,7 +1760,7 @@ Example value
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kubernetes_event_count">⚠kubernetes.event.count</h4>
+<h4 id="_kubernetes_event_count">kubernetes.event.count</h4>
 <div class="paragraph">
 <p>The number of times this event has occurred</p>
 </div>
@@ -1786,7 +1786,7 @@ Example value
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kubernetes_event_type">⚠kubernetes.event.type</h4>
+<h4 id="_kubernetes_event_type">kubernetes.event.type</h4>
 <div class="paragraph">
 <p>The type of event, <code>Normal</code> or <code>Warning</code>. New types could be added in the future.</p>
 </div>

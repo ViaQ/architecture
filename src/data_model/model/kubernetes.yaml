@@ -67,7 +67,6 @@ namespace:
           example: "`openshift`"
           description: The provider associated with this Kubernetes object
     - name: event
-      private: true
       type: group
       description: The Kubernetes event obtained from the Kubernetes master API. The event is a whole JSON object nested under the `kubernetes` field. This event description loosely follows `type Event` in link:https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#event-v1-core[Event v1 core].
       fields:
