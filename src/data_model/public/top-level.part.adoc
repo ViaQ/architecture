@@ -5,12 +5,25 @@ The top level fields may be present in every record.
 
 === message
 
-Original log entry text, UTF-8 encoded
+Original log entry text, UTF-8 encoded This field may be absent or empty if a non-empty `structured` field is present. See the description of `structured` for more.
 
 [horizontal]
 Data type:: text
 
 Example value:: `HAPPY`
+
+
+
+
+
+=== structured
+
+Original log entry as a structured object. This field may be present if the forwarder was configured to parse structured JSON logs. If the original log entry was a valid structured log, this field will contain an equivalent JSON structure. Otherwise this field will be empty or absent, and the `message` field will contain the original log message. The `structured` field has whatever sub-fields are included in the log message, there are no restrictions defined here.
+
+[horizontal]
+Data type:: group
+
+Example value:: map[message:starting fluentd worker pid=21631 ppid=21618 worker=0 pid:21631 ppid:21618 worker:0]
 
 
 

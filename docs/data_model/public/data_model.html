@@ -425,6 +425,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_message">message</a></li>
+<li><a href="#_structured">structured</a></li>
 <li><a href="#_timestamp">@timestamp</a></li>
 <li><a href="#_hostname">hostname</a></li>
 <li><a href="#_ipaddr4">ipaddr4</a></li>
@@ -478,7 +479,7 @@ Log records are often formatted as JSON objects, but this data model can apply t
 <h2 id="_message">message</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Original log entry text, UTF-8 encoded</p>
+<p>Original log entry text, UTF-8 encoded This field may be absent or empty if a non-empty <code>structured</code> field is present. See the description of <code>structured</code> for more.</p>
 </div>
 <div class="hdlist">
 <table>
@@ -496,6 +497,34 @@ Example value
 </td>
 <td class="hdlist2">
 <p><code>HAPPY</code></p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_structured">structured</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Original log entry as a structured object. This field may be present if the forwarder was configured to parse structured JSON logs. If the original log entry was a valid structured log, this field will contain an equivalent JSON structure. Otherwise this field will be empty or absent, and the <code>message</code> field will contain the original log message. The <code>structured</code> field has whatever sub-fields are included in the log message, there are no restrictions defined here.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>group</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p>map[message:starting fluentd worker pid=21631 ppid=21618 worker=0 pid:21631 ppid:21618 worker:0]</p>
 </td>
 </tr>
 </table>

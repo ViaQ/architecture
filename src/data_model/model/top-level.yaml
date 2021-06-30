@@ -6,8 +6,21 @@ namespace:
       index: true
       doc_values: false
       example: "`HAPPY`"
-      description: Original log entry text, UTF-8 encoded
+      description: >
+        Original log entry text, UTF-8 encoded
+        This field may be absent or empty if a non-empty `structured` field is present.
+        See the description of `structured` for more.
       norms: false
+    - name: structured
+      type: group
+      example: {"pid":21631,"ppid":21618,"worker":0,"message":"starting fluentd worker pid=21631 ppid=21618 worker=0"}
+      description: >
+        Original log entry as a structured object.
+        This field may be present if the forwarder was configured to parse structured JSON logs.
+        If the original log entry was a valid structured log, this field will contain an equivalent JSON structure.
+        Otherwise this field will be empty or absent, and the `message` field will contain the original log message.
+        The `structured` field has whatever sub-fields are included in the log message,
+        there are no restrictions defined here.
     - name: "@timestamp"
       type: date
       format: yyyy-MM-dd HH:mm:ss,SSSZ||yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ||yyyy-MM-dd'T'HH:mm:ssZ||dateOptionalTime
