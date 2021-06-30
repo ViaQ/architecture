@@ -12,8 +12,12 @@ TIP: To contribute to this site, see https://github.com/ViaQ/documentation
 
 == Documentation
 
-* link:architecture/index.html[Architecture overview]
-* link:data_model/index.html[Data model for log records]
+link:architecture/index.html[Logging architecture overview]
+
+Data model for log records:
+
+* xref:data_model/public/data_model.adoc[Public data model for users]
+* xref:data_model/private/data_model.adoc[Complete model with fields for internal use]
 
 
 == Other Resources

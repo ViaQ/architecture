@@ -44,9 +44,9 @@ That names and formats of correlation fields or labels are not uniform across si
 it is not compatible with the current naming schemes of Openshift Logging, Monitoring or Telemetry,
 or Kubernetes.
 
-The data models we currently use are:
+The data model we currently use is:
 
-* link:../data_model/index.html[Openshift Logging]
+* link:../data_model/public/data_model.html[Openshift Logging]
 *  Metrics: _TODO_ Openshift and Kubernetes have consistent labels and naming schemes.
 *  Traces: _TODO_
 
