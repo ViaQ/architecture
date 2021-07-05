@@ -162,7 +162,7 @@ Example value:: `openshift`
 === kubernetes.event
 
 
-The Kubernetes event obtained from the Kubernetes master API. The event is a whole JSON object nested under the `kubernetes` field. This event description loosely follows `type Event` in link:https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#event-v1-core[Event v1 core]. 
+The Kubernetes event obtained from the Kubernetes master API. This event description loosely follows `type Event` in link:https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#event-v1-core[Event v1 core]. 
 
 [horizontal]
 Data type:: group
@@ -204,7 +204,7 @@ Example value:: `java-mainclass-1.14d888a4cfc24890`
 ===== kubernetes.event.metadata.namespace
 
 
-The name of the namespace that induced the event. It differs from `namespace_name`, which will be in case of every event the 'eventrouter'. TBD 
+The name of the namespace where the event originally occurred. Note that it differs from `kubernetes.namespace_name`, which is the namespace where the `eventrouter` application is deployed. 
 
 [horizontal]
 Data type:: keyword
@@ -253,7 +253,7 @@ Example value:: `311987`
 ==== kubernetes.event.involvedObject
 
 
-A description of the object involved in the event creation 
+The object that the event is about. 
 
 [horizontal]
 Data type:: group
@@ -274,7 +274,7 @@ Example value:: `ReplicationController`
 ===== kubernetes.event.involvedObject.namespace
 
 
-The name of the namespace in which the object triggered the event. If a pod did not trigger the event, then the namespace is not the `kubernetes.namespace_name`. This is the case for every event eventrouter's namespace. TBD 
+The namespace name of the involved object. Note that it may differ from `kubernetes.namespace_name`, which is the namespace where the `eventrouter` application is deployed. 
 
 [horizontal]
 Data type:: keyword

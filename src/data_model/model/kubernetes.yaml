@@ -68,7 +68,7 @@ namespace:
           description: The provider associated with this Kubernetes object
     - name: event
       type: group
-      description: The Kubernetes event obtained from the Kubernetes master API. The event is a whole JSON object nested under the `kubernetes` field. This event description loosely follows `type Event` in link:https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#event-v1-core[Event v1 core].
+      description: The Kubernetes event obtained from the Kubernetes master API. This event description loosely follows `type Event` in link:https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#event-v1-core[Event v1 core].
       fields:
         - name: verb
           type: keyword
@@ -85,7 +85,7 @@ namespace:
             - name: namespace
               type: keyword
               example: "`default`"
-              description: The name of the namespace that induced the event. It differs from `namespace_name`, which will be in case of every event the 'eventrouter'. TBD
+              description: The name of the namespace where the event originally occurred. Note that it differs from `kubernetes.namespace_name`, which is the namespace where the `eventrouter` application is deployed.
             - name: selfLink
               type: keyword
               example: "`/api/v1/namespaces/javaj/events/java-mainclass-1.14d888a4cfc24890`"
@@ -100,7 +100,7 @@ namespace:
               description: A string that identifies the server's internal version of the event. Clients can use this string to determine when objects have changed.
         - name: involvedObject
           type: group
-          description: A description of the object involved in the event creation
+          description: The object that the event is about.
           fields:
             - name: kind
               type: keyword
@@ -109,7 +109,7 @@ namespace:
             - name: namespace
               type: keyword
               example: "`default`"
-              description: The name of the namespace in which the object triggered the event. If a pod did not trigger the event, then the namespace is not the `kubernetes.namespace_name`. This is the case for every event eventrouter's namespace. TBD
+              description: The namespace name of the involved object. Note that it may differ from `kubernetes.namespace_name`, which is the namespace where the `eventrouter` application is deployed.
             - name: name
               type: keyword
               example: "`java-mainclass-1`"

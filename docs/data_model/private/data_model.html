@@ -1040,7 +1040,7 @@ Example value
 <div class="sect2">
 <h3 id="_kubernetes_event">kubernetes.event</h3>
 <div class="paragraph">
-<p>The Kubernetes event obtained from the Kubernetes master API. The event is a whole JSON object nested under the <code>kubernetes</code> field. This event description loosely follows <code>type Event</code> in <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#event-v1-core">Event v1 core</a>.</p>
+<p>The Kubernetes event obtained from the Kubernetes master API. This event description loosely follows <code>type Event</code> in <a href="https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#event-v1-core">Event v1 core</a>.</p>
 </div>
 <div class="hdlist">
 <table>
@@ -1126,7 +1126,7 @@ Example value
 <div class="sect4">
 <h5 id="_kubernetes_event_metadata_namespace">kubernetes.event.metadata.namespace</h5>
 <div class="paragraph">
-<p>The name of the namespace that induced the event. It differs from <code>namespace_name</code>, which will be in case of every event the 'eventrouter'. TBD</p>
+<p>The name of the namespace where the event originally occurred. Note that it differs from <code>kubernetes.namespace_name</code>, which is the namespace where the <code>eventrouter</code> application is deployed.</p>
 </div>
 <div class="hdlist">
 <table>
@@ -1231,7 +1231,7 @@ Example value
 <div class="sect3">
 <h4 id="_kubernetes_event_involvedobject">kubernetes.event.involvedObject</h4>
 <div class="paragraph">
-<p>A description of the object involved in the event creation</p>
+<p>The object that the event is about.</p>
 </div>
 <div class="hdlist">
 <table>
@@ -1274,7 +1274,7 @@ Example value
 <div class="sect4">
 <h5 id="_kubernetes_event_involvedobject_namespace">kubernetes.event.involvedObject.namespace</h5>
 <div class="paragraph">
-<p>The name of the namespace in which the object triggered the event. If a pod did not trigger the event, then the namespace is not the <code>kubernetes.namespace_name</code>. This is the case for every event eventrouter&#8217;s namespace. TBD</p>
+<p>The namespace name of the involved object. Note that it may differ from <code>kubernetes.namespace_name</code>, which is the namespace where the <code>eventrouter</code> application is deployed.</p>
 </div>
 <div class="hdlist">
 <table>
