@@ -12,14 +12,14 @@ all: $(PUBLIC) $(PRIVATE)
 clean: force
 	rm -f */*.part.adoc
 
-public/%.part.adoc: model/%.yaml $(MAKEFILE) public/*.gotmpl
+public/%.part.adoc: model/%.yaml $(MAKEFILE) adoc/*.gotmpl
 	@mkdir -p $(dir $@)
-	$(GOMPLATE) -c.=$< -f public/data_model.adoc.gotmpl > $@
+	$(GOMPLATE) -c.=$< -t adoc/fields.gotmpl -f adoc/public.gotmpl > $@
 	@touch public/data_model.adoc
 
-private/%.part.adoc: model/%.yaml $(MAKEFILE) private/*.gotmpl
+private/%.part.adoc: model/%.yaml $(MAKEFILE) adoc/*.gotmpl
 	@mkdir -p $(dir $@)
-	$(GOMPLATE) -c.=$< -f private/data_model.adoc.gotmpl > $@
+	$(GOMPLATE) -c.=$< -t adoc/fields.gotmpl -f adoc/private.gotmpl > $@
 	@touch private/data_model.adoc
 
 .PHONY: force

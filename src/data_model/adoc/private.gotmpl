@@ -1,0 +1,16 @@
+{{/*
+Generate asciidoc for all fields (public and private) in a namespace .yaml file.
+Private fields are marked with ⚠.
+*/}}
+
+{{- template "privateField" dict "field" $.namespace "heading" 2 "parent" "" -}}
+
+{{define "privateField" -}}
+{{- $warn :=  and (default "" (index .field "private")) "⚠" -}}
+{{- template "fieldContent" dict "field" .field "parent" .parent "heading" .heading "marker" $warn}}
+{{$fullName := (tpl `{{template "fullName" .}}` .)}}
+{{$heading := math.Add $.heading 1}}
+{{- range (index .field "fields") -}}
+{{- template "privateField" dict "field" . "parent" $fullName "heading" $heading}}
+{{end -}}
+{{end -}}

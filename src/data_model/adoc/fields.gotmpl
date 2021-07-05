@@ -1,0 +1,39 @@
+{{/*
+Generate asciidoc documentation of fields and namespaces.
+
+Templates take a map with:
+
+"field" the field to print
+"parent" parent namespace/field name.
+"heading" depth of heading (int)
+"marker" optional marker for title
+*/}}
+
+{{define "fieldContent" -}}
+{{/* Field heading and content, not sub-fields */}}
+
+{{- strings.Repeat (conv.ToInt .heading) "="}} {{default "" (index . "marker") -}}
+{{if index .field "name"}}
+{{- template "fullName" .}}
+{{else}}
+{{- ""}}Top Level Fields
+{{- end}}
+
+{{trimSpace (index .field "description" | default "⚠ No description.")}}
+{{- if .parent}} {{/* No fields for top level namepspaces */}}
+
+[horizontal]
+{{- with index .field "type"}}
+Data type:: {{.}}
+{{end -}}
+{{- with index .field "example"}}
+Example value:: {{.}}
+{{end -}}
+{{end -}}
+{{- end}}
+
+{{define "fullName" -}}
+{{$parent := (default "" (index . "parent"))}}
+{{- $parent}}{{and $parent "."}}{{index .field "name" | default "" -}}
+{{- end}}
+

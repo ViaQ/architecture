@@ -6,7 +6,7 @@ The remaining files define groups of related fields that appear in some types of
 Some fields are marked "private" meaning they are internal to the logging system, users should not rely on them,
 
 The model can be used to generate code or documentation.
-The `Makefile` generates simple AsciiDoc reference documents, using Go templates.
+The `Makefile` generates simple AsciiDoc reference documents, using Go templates in link:adoc/[].
 There are two versions: link:private/[] is the complete model link:public/[] only includes public fields.
 
 The generated documents are:
