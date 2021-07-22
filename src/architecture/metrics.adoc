@@ -31,32 +31,16 @@ These labels are compatible with `kubelet`, here's an example `kubelet` metric:
 kubelet_container_log_filesystem_used_bytes{container="authentication-operator",namespace="openshift-authentication-operator",pod="authentication-operator-67c88594b5-zftcn ",uid="ead91de5-5e10-42b9-8ab9-6386f21cd554"} 3.44064e+07
 ----
 
-WARNING: Should we follow `kubelet` and add `_container_` to our metric names? +
-`log_container_logged_bytes_total` `log_container_collected_bytes_total`
-
 === Label identifying a cluster
 
-Multi-cluster deployments need a `cluster` label
-This label will not be provided by every metric endpoints, it can be added by  prometheus cluster-wide.
+Multi-cluster deployments need a `cluster` label.
+OpenShift clusters provide a unique, human-readable name name via the API , which can be retrieved by:
+....
+oc get infrastructure/cluster -o template="{{.status.infrastructureName}}"
+....
 
-NOTE: There is a lack of clarity about a standard unique identifier for a cluster.
-Our preferred option is the DNS authority (`host:port` part) of the public DNS name for the API server.
-
-We will proceed on this assumption, but to be aware of the debate:
-
-* DNS authority
-** [x] Easy to read/remember
-** [x] Guaranteed network-unique, globally unique for a registered DNS domain.
-** [x] Definitely known to anyone with API access \
-   `oc config view -o jsonpath='{.clusters[ ].name}{"\n"}'`
-* UUID
-** [x] Guaranteed unique
-** [ ] Hard to read and remember
-** [ ] Need to generate and discover it somehow
-* Manually chosen string:
-** [x] Easy to read/remember
-** [ ] Not suitable for large multi-cluster, need automatic ID
-** [ ] Not guaranteed unique
+This will not work on other clusters.
+Most cluster providers offer a unique name but there is no universal plain kubernetes way to get one.
 
 Relevant discussions:
 

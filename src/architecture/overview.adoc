@@ -1,14 +1,13 @@
 == Overview
 
-=== Log categories
+=== Log types
 
-We define 3 _logging categories_
+There are three main _log types_
 
 [horizontal]
 Application:: Container logs from non-infrastrure containers.
 Infrastructure:: Node logs and container logs from `kube-*` and `openshift-*` namespaces.
 Audit:: Node logs from `/var/log/audit`, security sensitive.
-
 
 === Components
 
@@ -17,11 +16,10 @@ The logging system breaks down into 4 logical components:
 [horizontal]
 collector:: Read container log data from each node.
 forwarder:: Forward log data to configured outputs.
-store:: Store log data for analys This is the default output for the _forwarder_.
+store:: Store log data for analysis This is the default output for the _forwarder_.
 exploration:: UI tools (GUI and command line) to search, query and view stored logs
 
 === Operators and Custom Resources
-
 
 .Key to diagrams
 image::legend.svg[]
