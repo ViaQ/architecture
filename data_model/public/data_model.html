@@ -424,8 +424,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_top_level_fields">Top Level Fields</a>
-<ul class="sectlevel2">
 <li><a href="#_message">message</a></li>
 <li><a href="#_structured">structured</a></li>
 <li><a href="#_timestamp">@timestamp</a></li>
@@ -438,8 +436,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_tags">tags</a></li>
 <li><a href="#_file">file</a></li>
 <li><a href="#_offset">offset</a></li>
-</ul>
-</li>
 <li><a href="#_kubernetes">kubernetes</a>
 <ul class="sectlevel2">
 <li><a href="#_kubernetes_pod_name">kubernetes.pod_name</a></li>
@@ -506,49 +502,152 @@ All fields are optional unless noted otherwise.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_top_level_fields">Top Level Fields</h2>
+<h2 id="_message">message</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>The top level fields may be present in every record.</p>
-</div>
-<div class="sect2">
-<h3 id="_message">message</h3>
 <div class="paragraph">
 <p>Original log entry text, UTF-8 encoded This field may be absent or empty if a non-empty <code>structured</code> field is present. See the description of <code>structured</code> for more.</p>
 </div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>text</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>HAPPY</code></p>
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="_structured">structured</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_structured">structured</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Original log entry as a structured object. This field may be present if the forwarder was configured to parse structured JSON logs. If the original log entry was a valid structured log, this field will contain an equivalent JSON structure. Otherwise this field will be empty or absent, and the <code>message</code> field will contain the original log message. The <code>structured</code> field has whatever sub-fields are included in the log message, there are no restrictions defined here.</p>
 </div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>group</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p>map[message:starting fluentd worker pid=21631 ppid=21618 worker=0 pid:21631 ppid:21618 worker:0]</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="_timestamp">@timestamp</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_timestamp">@timestamp</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>A UTC value that marks when the log payload was created or, if the creation time is not known, when the log payload was first collected. The “@” prefix denotes a field that is reserved for a particular use. By default, most tools look for “@timestamp” with ElasticSearch.</p>
 </div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>date</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>2015-01-24 14:06:05.071000000 Z</code></p>
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="_hostname">hostname</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hostname">hostname</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The name of the host where this log message originated. In a Kubernetes cluster, this is the same as <code>kubernetes.host</code>.</p>
 </div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="_ipaddr4">ipaddr4</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ipaddr4">ipaddr4</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The IPv4 address of the source server. Can be an array.</p>
 </div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>ip</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="_ipaddr6">ipaddr6</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ipaddr6">ipaddr6</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The IPv6 address of the source server, if available. Can be an array.</p>
 </div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>ip</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="_level">level</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_level">level</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The logging level from various sources, including <code>rsyslog(severitytext property)</code>, python&#8217;s logging module, and others.</p>
 </div>
@@ -599,36 +698,125 @@ All fields are optional unless noted otherwise.
 <div class="paragraph">
 <p>Map the log levels or priorities of other logging systems to their nearest match in the preceding list. For example, from <a href="https://docs.python.org/2.7/library/logging.html#logging-levels">python logging</a>, you can match <code>CRITICAL</code> with <code>crit</code>, <code>ERROR</code> with <code>err</code>, and so on.</p>
 </div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Example value
+</td>
+<td class="hdlist2">
+<p><code>info</code></p>
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="_pid">pid</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pid">pid</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The process ID of the logging entity, if available.</p>
 </div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="_service">service</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_service">service</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The name of the service associated with the logging entity, if available. For example, syslog&#8217;s <code>APP-NAME</code> and rsyslog&#8217;s <code>programname</code> properties are mapped to the service field.</p>
 </div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="_tags">tags</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tags">tags</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Optional. An operator-defined list of tags placed on each log by the collector or normalizer. The payload can be a string with whitespace-delimited string tokens or a JSON list of string tokens.</p>
 </div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>text</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="_file">file</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_file">file</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The path to the log file from which the collector read this log entry. Normally, this is a path in the <code>/var/log</code> file system of a cluster node.</p>
 </div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>text</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="_offset">offset</h3>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_offset">offset</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The offset value. Can represent bytes to the start of the log line in the file (zero- or one-based), or log line numbers (zero- or one-based), so long as the values are strictly monotonically increasing in the context of a single log file. The values are allowed to wrap, representing a new version of the log file (rotation).</p>
 </div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>long</p>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -637,6 +825,18 @@ All fields are optional unless noted otherwise.
 <div class="sectionbody">
 <div class="paragraph">
 <p>The namespace for Kubernetes-specific metadata</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>group</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_kubernetes_pod_name">kubernetes.pod_name</h3>
