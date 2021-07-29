@@ -488,11 +488,8 @@ kubelet_container_log_filesystem_used_bytes{container="authentication-operator",
 <div class="sect2">
 <h3 id="_label_identifying_a_cluster">Label identifying a cluster</h3>
 <div class="paragraph">
-<p>Multi-cluster deployments need a <code>cluster</code> label
-This label will not be provided by every metric endpoint, it can be added by  prometheus cluster-wide.</p>
-</div>
-<div class="paragraph">
-<p>OpenShift clusters provide a unique, human-readable name name via the API , which can be retrieved by:</p>
+<p>Multi-cluster deployments need a <code>cluster</code> label.
+OpenShift clusters provide a unique, human-readable name name via the API , which can be retrieved by:</p>
 </div>
 <div class="literalblock">
 <div class="content">

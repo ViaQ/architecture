@@ -1,0 +1,52 @@
+{{/*
+Generate asciidoc documentation of a YAML namespace definition.
+
+Templates take a context map with:
+
+"field" the field or namespace being processed
+"parent" full name of the field's parent, "" for top-level fields
+"heading" depth of heading (int)
+
+Re-define block templates to customize.
+*/}}
+
+{{- with .namespace}}
+{{- if (index . "name")}}
+{{- /* Named namespaces are top-level fields */ -}}
+{{- template "field" dict "field" . "parent" "" "heading" 2}}
+{{- else}}
+{{- /* Nameless namespace contains top-level fields*/ -}}
+{{- range (index . "fields")}}
+{{- template "field" dict "field" . "parent" "" "heading" 2}}
+{{- end}}
+{{- end}}
+{{- end}}
+
+{{- define "field" -}}
+{{block "fieldContent" . -}}
+{{template "defaultFieldContent" .}}
+{{end}}
+{{- end}}
+
+{{- define "defaultFieldContent" -}}
+{{strings.Repeat (conv.ToInt .heading) "="}} {{block "marker" .}}{{end}}{{template "fullName" .}}
+
+{{trimSpace (index .field "description" | default "⚠ No description.")}}
+
+[horizontal]
+{{- with index .field "type"}}
+Data type:: {{.}}
+{{- end -}}
+{{- with index .field "example"}}
+Example value:: {{.}}
+{{- end -}}
+{{- $parent := tmpl.Exec "fullName" .}}
+{{- $heading := (math.Add (index . "heading") 1)}}
+{{range (index .field "fields")}}
+{{template "field" dict "field" . "parent" $parent "heading" $heading}}
+{{- end }}
+{{- end }}
+
+{{- define "fullName"}}
+{{- with index . "parent"}}{{.}}.{{end}}{{index .field "name" -}}
+{{- end}}

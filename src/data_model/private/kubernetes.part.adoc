@@ -1,393 +1,306 @@
-== kubernetes
-
+==  kubernetes
 
 The namespace for Kubernetes-specific metadata
 
-=== kubernetes.pod_name
+[horizontal]
+Data type:: group
 
+===  kubernetes.pod_name
 
-The name of the pod 
+The name of the pod
 
 [horizontal]
 Data type:: keyword
 
 
+===  kubernetes.pod_id
 
-=== kubernetes.pod_id
-
-
-The Kubernetes ID of the pod 
+The Kubernetes ID of the pod
 
 [horizontal]
 Data type:: keyword
 
 
+===  kubernetes.namespace_name
 
-=== kubernetes.namespace_name
-
-
-The name of the namespace in Kubernetes 
+The name of the namespace in Kubernetes
 
 [horizontal]
 Data type:: keyword
 
 
+===  kubernetes.namespace_id
 
-=== kubernetes.namespace_id
-
-
-The ID of the namespace in Kubernetes 
+The ID of the namespace in Kubernetes
 
 [horizontal]
 Data type:: keyword
 
 
+===  kubernetes.host
 
-=== kubernetes.host
-
-
-The Kubernetes node name 
+The Kubernetes node name
 
 [horizontal]
 Data type:: keyword
 
 
+=== ⚠ kubernetes.master_url
 
-=== ⚠kubernetes.master_url
-
-
-The Kubernetes Master URL. Not useful as it is always the internal DNS alias 'https://kubernetes.default.svc' 
+The Kubernetes Master URL. Not useful as it is always the internal DNS alias 'https://kubernetes.default.svc'
 
 [horizontal]
 Data type:: keyword
 
 
+===  kubernetes.container_name
 
-=== kubernetes.container_name
-
-
-The name of the container in Kubernetes 
+The name of the container in Kubernetes
 
 [horizontal]
 Data type:: keyword
 
+==== ⚠ kubernetes.container_name.raw
 
-==== ⚠kubernetes.container_name.raw
-
-
-⚠ No description. 
+⚠ No description.
 
 [horizontal]
 
 
 
-=== kubernetes.annotations
+===  kubernetes.annotations
 
-
-Annotations associated with the Kubernetes object 
+Annotations associated with the Kubernetes object
 
 [horizontal]
 Data type:: group
 
 
+===  kubernetes.labels
 
-=== kubernetes.labels
-
-
-Labels present on the original Kubernetes Pod 
+Labels present on the original Kubernetes Pod
 
 [horizontal]
 Data type:: group
 
+==== ⚠ kubernetes.labels.deployment
 
-==== ⚠kubernetes.labels.deployment
-
-
-The deployment associated with this Kubernetes object 
+The deployment associated with this Kubernetes object
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `logging-kibana-3`
 
 
+==== ⚠ kubernetes.labels.deploymentconfig
 
-==== ⚠kubernetes.labels.deploymentconfig
-
-
-The deployment configuration associated with this Kubernetes object 
+The deployment configuration associated with this Kubernetes object
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `logging-kibana`
 
+===== ⚠ kubernetes.labels.deploymentconfig.raw
 
-===== ⚠kubernetes.labels.deploymentconfig.raw
-
-
-⚠ No description. 
+⚠ No description.
 
 [horizontal]
 Data type:: keyword
 
 
 
+==== ⚠ kubernetes.labels.component
 
-==== ⚠kubernetes.labels.component
-
-
-The component associated with this Kubernetes object 
+The component associated with this Kubernetes object
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `kibana`
 
 
+==== ⚠ kubernetes.labels.provider
 
-==== ⚠kubernetes.labels.provider
-
-
-The provider associated with this Kubernetes object 
+The provider associated with this Kubernetes object
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `openshift`
 
 
 
+===  kubernetes.event
 
-=== kubernetes.event
-
-
-The Kubernetes event obtained from the Kubernetes master API. This event description loosely follows `type Event` in link:https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#event-v1-core[Event v1 core]. 
+The Kubernetes event obtained from the Kubernetes master API. This event description loosely follows `type Event` in link:https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#event-v1-core[Event v1 core].
 
 [horizontal]
 Data type:: group
 
+====  kubernetes.event.verb
 
-==== kubernetes.event.verb
-
-
-The type of event, `ADDED`, `MODIFIED`, or `DELETED` 
+The type of event, `ADDED`, `MODIFIED`, or `DELETED`
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `ADDED`
 
 
+====  kubernetes.event.metadata
 
-==== kubernetes.event.metadata
-
-
-Information related to the location and time of the event creation 
+Information related to the location and time of the event creation
 
 [horizontal]
 Data type:: group
 
+=====  kubernetes.event.metadata.name
 
-===== kubernetes.event.metadata.name
-
-
-The name of the object that triggered the event creation 
+The name of the object that triggered the event creation
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `java-mainclass-1.14d888a4cfc24890`
 
 
+=====  kubernetes.event.metadata.namespace
 
-===== kubernetes.event.metadata.namespace
-
-
-The name of the namespace where the event originally occurred. Note that it differs from `kubernetes.namespace_name`, which is the namespace where the `eventrouter` application is deployed. 
+The name of the namespace where the event originally occurred. Note that it differs from `kubernetes.namespace_name`, which is the namespace where the `eventrouter` application is deployed.
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `default`
 
 
+=====  kubernetes.event.metadata.selfLink
 
-===== kubernetes.event.metadata.selfLink
-
-
-A link to the event 
+A link to the event
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `/api/v1/namespaces/javaj/events/java-mainclass-1.14d888a4cfc24890`
 
 
+=====  kubernetes.event.metadata.uid
 
-===== kubernetes.event.metadata.uid
-
-
-The unique ID of the event 
+The unique ID of the event
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `d828ac69-7b58-11e7-9cf5-5254002f560c`
 
 
+=====  kubernetes.event.metadata.resourceVersion
 
-===== kubernetes.event.metadata.resourceVersion
-
-
-A string that identifies the server's internal version of the event. Clients can use this string to determine when objects have changed. 
+A string that identifies the server's internal version of the event. Clients can use this string to determine when objects have changed.
 
 [horizontal]
 Data type:: integer
-
 Example value:: `311987`
 
 
 
+====  kubernetes.event.involvedObject
 
-==== kubernetes.event.involvedObject
-
-
-The object that the event is about. 
+The object that the event is about.
 
 [horizontal]
 Data type:: group
 
+=====  kubernetes.event.involvedObject.kind
 
-===== kubernetes.event.involvedObject.kind
-
-
-The type of object 
+The type of object
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `ReplicationController`
 
 
+=====  kubernetes.event.involvedObject.namespace
 
-===== kubernetes.event.involvedObject.namespace
-
-
-The namespace name of the involved object. Note that it may differ from `kubernetes.namespace_name`, which is the namespace where the `eventrouter` application is deployed. 
+The namespace name of the involved object. Note that it may differ from `kubernetes.namespace_name`, which is the namespace where the `eventrouter` application is deployed.
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `default`
 
 
+=====  kubernetes.event.involvedObject.name
 
-===== kubernetes.event.involvedObject.name
-
-
-The name of the object that triggered the event 
+The name of the object that triggered the event
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `java-mainclass-1`
 
 
+=====  kubernetes.event.involvedObject.uid
 
-===== kubernetes.event.involvedObject.uid
-
-
-The unique ID of the object 
+The unique ID of the object
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `e6bff941-76a8-11e7-8193-5254002f560c`
 
 
+=====  kubernetes.event.involvedObject.apiVersion
 
-===== kubernetes.event.involvedObject.apiVersion
-
-
-The version of kubernetes master API 
+The version of kubernetes master API
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `v1`
 
 
+=====  kubernetes.event.involvedObject.resourceVersion
 
-===== kubernetes.event.involvedObject.resourceVersion
-
-
-A string that identifies the server's internal version of the pod that triggered the event. Clients can use this string to determine when objects have changed. 
+A string that identifies the server's internal version of the pod that triggered the event. Clients can use this string to determine when objects have changed.
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `308882`
 
 
 
+====  kubernetes.event.reason
 
-==== kubernetes.event.reason
-
-
-A short machine-understandable string that gives the reason for generating this event 
+A short machine-understandable string that gives the reason for generating this event
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `SuccessfulCreate`
 
 
+====  kubernetes.event.source_component
 
-==== kubernetes.event.source_component
-
-
-The component that reported this event 
+The component that reported this event
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `replication-controller`
 
 
+====  kubernetes.event.firstTimestamp
 
-==== kubernetes.event.firstTimestamp
-
-
-The time at which the event was first recorded 
+The time at which the event was first recorded
 
 [horizontal]
 Data type:: date
-
 Example value:: `2017-08-07 10:11:57.000000000 Z`
 
 
+====  kubernetes.event.count
 
-==== kubernetes.event.count
-
-
-The number of times this event has occurred 
+The number of times this event has occurred
 
 [horizontal]
 Data type:: integer
-
 Example value:: `1`
 
 
+====  kubernetes.event.type
 
-==== kubernetes.event.type
-
-
-The type of event, `Normal` or `Warning`. New types could be added in the future. 
+The type of event, `Normal` or `Warning`. New types could be added in the future.
 
 [horizontal]
 Data type:: keyword
-
 Example value:: `Normal`
 
 
