@@ -43,7 +43,9 @@ DOTS=$(shell find src -name '*.dot')
 HTMLS=$(patsubst src/%.adoc,docs/%.html,$(ADOCS))
 SVGS=$(patsubst src/%.dot,docs/%.svg,$(DOTS))
 
-docs: $(HTMLS) $(SVGS) $(PNG_DOCS) data_model
+docs: $(SVGS) data_model
+	$(MAKE) $(HTMLS)
+
 
 docs/%/index.html: src/%/*.adoc
 
@@ -54,12 +56,6 @@ docs/%.html: src/%.adoc $(MAKEFILE)
 docs/%.svg: src/%.dot
 	@mkdir -p $(dir $@)
 	$(DOT) $< -o $@
-
-docs/%.png: src/%.png
-	@mkdir -p $(dir $@)
-	cp $< $@
-
-src/data_model/private/data_model.adoc src/data_model/public/data_model.adoc: data_model
 
 data_model: force
 	$(MAKE) -C src/data_model all

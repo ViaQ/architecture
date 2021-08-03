@@ -1,0 +1,8 @@
+namespace:
+  description: The namespace for openshift-logging specific metadata
+  fields:
+    - name: labels
+      type: group
+      description: 'Labels added by the Cluster Log Forwarder configuration'
+  name: openshift
+  type: group

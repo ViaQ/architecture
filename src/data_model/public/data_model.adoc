@@ -8,5 +8,4 @@ When log records are formatted as JSON objects, dotted  names indicate nested fi
 
 NOTE: All fields are optional unless noted otherwise.
 
-include::top-level.part.adoc[]
-include::kubernetes.part.adoc[]
+include::gen/includes.part.adoc[]

@@ -7,7 +7,4 @@ WARNING: Fields that are private to the logging system are marked with ⚠
 The logging data model defines the  fields that may be present in a log record.
 Log records are often formatted as JSON objects, but this data model can apply to other encodings.
 
-include::top-level.part.adoc[]
-include::kubernetes.part.adoc[]
-include::pipeline.part.adoc[]
-include::rsyslog.part.adoc[]
+include::gen/includes.part.adoc[]
