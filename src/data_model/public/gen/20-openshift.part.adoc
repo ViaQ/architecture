@@ -1,0 +1,16 @@
+== openshift
+
+The namespace for openshift-logging specific metadata
+
+[horizontal]
+Data type:: group
+
+=== openshift.labels
+
+Labels added by the Cluster Log Forwarder configuration
+
+[horizontal]
+Data type:: group
+
+
+
