@@ -11,5 +11,5 @@ There are two versions: link:private/[] is the complete model link:public/[] onl
 
 The generated documents are:
 
-*  link:../../docs/data_model/public/data_model.html[Public data model]
-*  link:../../docs/data_model/private/data_model.html[Internal data model]
+* https://viaq.github.io/documentation/data_model/public/data_model.html[Public data model]
+* https://viaq.github.io/documentation/data_model/private/data_model.html[Private data model]
