@@ -7,5 +7,3 @@ The logging data model defines the  fields that may be present in a log record.
 When log records are formatted as JSON objects, dotted  names indicate nested fields.
 
 NOTE: All fields are optional unless noted otherwise.
-
-include::gen/includes.part.adoc[]

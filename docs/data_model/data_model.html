@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
-<title>Using the data model</title>
+<title>Log Record Fields</title>
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
 /* Remove comment around @import statement below when using as a custom stylesheet */
@@ -418,37 +418,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body class="article">
+<body class="book">
 <div id="header">
+<h1>Log Record Fields</h1>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_using_the_data_model">Using the data model</h2>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The logging data model is defined by  <code>.yaml</code> files in <a href="model/" class="bare">model/</a> .
-Top level fields that can appear in any log record are defined in `namespaces/top-level.yaml.
-The remaining files define groups of related fields that appear in some types of record.
-Some fields are marked "private: true" meaning they are internal to the logging system,
-users should not rely on them,</p>
+<p>The logging data model defines the  fields that may be present in a log record.
+When log records are formatted as JSON objects, dotted  names indicate nested fields.</p>
 </div>
-<div class="paragraph">
-<p>The model can be used to generate code or documentation.
-The <code>Makefile</code> generates simple AsciiDoc reference documents, using Go templates in <a href="adoc/" class="bare">adoc/</a>.
-There are two versions: <a href="private/" class="bare">private/</a> is the complete model <a href="public/" class="bare">public/</a> only includes public fields.</p>
-</div>
-<div class="paragraph">
-<p>Generated HTML at github.io:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://viaq.github.io/documentation/data_model/public/data_model.html">Public data model</a></p>
-</li>
-<li>
-<p><a href="https://viaq.github.io/documentation/data_model/private/data_model.html">Private data model</a></p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+All fields are optional unless noted otherwise.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

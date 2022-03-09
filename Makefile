@@ -37,19 +37,22 @@ clean:
 
 # Sources
 ADOCS=$(shell find src -name '*.adoc' | fgrep -v .part.adoc)
-DOTS=$(shell find src -name '*.dot')
-
-# Generated output
 HTMLS=$(patsubst src/%.adoc,docs/%.html,$(ADOCS))
+DOTS=$(shell find src -name '*.dot')
 SVGS=$(patsubst src/%.dot,docs/%.svg,$(DOTS))
 
 docs: $(SVGS) data_model
-	$(MAKE) $(HTMLS)
+	$(MAKE) $(HTMLS)	# Evaluate $(HTMLS) after data_model has run
 
+preview: docs
+	xdg-open ./docs/index.html; sleep 1 # Sleep to give the browser time to start, else it is killed.
+
+data_model: force
+	$(MAKE) -C src/data_model all
 
 docs/%/index.html: src/%/*.adoc
 
-docs/%.html: src/%.adoc $(MAKEFILE)
+docs/%.html: src/%.adoc
 	@mkdir -p $(dir $@)
 	$(ASCIIDOCTOR) -o $@ $<
 
@@ -57,7 +60,5 @@ docs/%.svg: src/%.dot
 	@mkdir -p $(dir $@)
 	$(DOT) $< -o $@
 
-data_model: force
-	$(MAKE) -C src/data_model all
 
 .PHONY: force

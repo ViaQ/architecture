@@ -1,0 +1,225 @@
+namespace:
+  name: systemd
+  type: group
+  description: >
+    Contains common fields specific to systemd journal.  For more information
+    please see
+    https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html
+    Applications may write their own fields to the journal.  These will be
+    available under the `systemd.u` namespace.  `RESULT` and `UNIT` are two
+    such fields.
+  fields:
+  - name: k
+    type: group
+    description: >
+      systemd's kernel-specific metadata.
+    fields:
+    - name: KERNEL_DEVICE
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_KERNEL_DEVICE=
+
+    - name: KERNEL_SUBSYSTEM
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_KERNEL_SUBSYSTEM=
+
+    - name: UDEV_DEVLINK
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_UDEV_DEVLINK=
+
+    - name: UDEV_DEVNODE
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_UDEV_DEVNODE=
+
+    - name: UDEV_SYSNAME
+      type: keyword
+      description: >
+         https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_UDEV_SYSNAME=
+
+  - name: t
+    type: group
+    description: >
+      trusted journal fields, fields that are implicitly added by the journal and cannot be altered by client code.
+    fields:
+    - name: AUDIT_LOGINUID
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_AUDIT_SESSION=
+
+    - name: BOOT_ID
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_BOOT_ID=
+
+    - name: AUDIT_SESSION
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_AUDIT_SESSION=
+
+    - name: CAP_EFFECTIVE
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_CAP_EFFECTIVE=
+
+    - name: CMDLINE
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_COMM=
+      norms: false
+
+    - name: COMM
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_COMM=
+
+    - name: EXE
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_COMM=
+      norms: false
+
+    - name: GID
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_PID=
+
+    - name: HOSTNAME
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_HOSTNAME=
+
+    - name: LINE_BREAK
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_LINE_BREAK=
+
+    - name: MACHINE_ID
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_MACHINE_ID=
+
+    - name: PID
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_PID=
+
+    - name: SELINUX_CONTEXT
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_SELINUX_CONTEXT=
+
+    - name: SOURCE_REALTIME_TIMESTAMP
+      type: keyword
+      description: |
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_SOURCE_REALTIME_TIMESTAMP=
+        This is converted to RFC 3339 NS format
+
+    - name: STREAM_ID
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_STREAM_ID=
+
+    - name: SYSTEMD_CGROUP
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_SYSTEMD_CGROUP=
+
+    - name: SYSTEMD_INVOCATION_ID
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_SYSTEMD_INVOCATION_ID=
+
+    - name: SYSTEMD_OWNER_UID
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_SYSTEMD_CGROUP=
+
+    - name: SYSTEMD_SESSION
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_SYSTEMD_CGROUP=
+
+    - name: SYSTEMD_SLICE
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_SYSTEMD_CGROUP=
+
+    - name: SYSTEMD_UNIT
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_SYSTEMD_CGROUP=
+
+    - name: SYSTEMD_USER_UNIT
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_SYSTEMD_CGROUP=
+
+    - name: TRANSPORT
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_TRANSPORT=
+
+    - name: UID
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#_PID=
+
+  - name: u
+    type: group
+    description: >
+      fields that are directly passed from clients and stored in the journal.
+    fields:
+    - name: CODE_FILE
+      type: keyword
+      norms: false
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#CODE_FILE=
+
+    - name: CODE_FUNCTION
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#CODE_FILE=
+
+    - name: CODE_LINE
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#CODE_FILE=
+
+    - name: ERRNO
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#ERRNO=
+
+    - name: MESSAGE_ID
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#MESSAGE_ID=
+
+    - name: SYSLOG_FACILITY
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#SYSLOG_FACILITY=
+
+    - name: SYSLOG_IDENTIFIER
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#SYSLOG_FACILITY=
+
+    - name: SYSLOG_PID
+      type: keyword
+      description: >
+        https://www.freedesktop.org/software/systemd/man/systemd.journal-fields.html#SYSLOG_FACILITY=
+
+    - name: RESULT
+      type: keyword
+      norms: false
+      description: >
+        For private use only.
+
+    - name: UNIT
+      type: keyword
+      description: >
+        For private use only.
