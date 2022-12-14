@@ -30,11 +30,9 @@ First, install or verify that you have the following software installed:
 
 Instructions for Fedora:
 
-// dnf install make linkchecker graphviz
 ----
-dnf install make graphviz
-gem install asciidoctor
-go get github.com/hairyhenderson/gomplate/v3/cmd/gomplate
+dnf install make graphviz asciidoctor linkchecker yamllint
+go install github.com/hairyhenderson/gomplate/v3/cmd/gomplate@latest
 ----
 
 For other platforms, figure out the equivalent installation steps.
@@ -47,7 +45,7 @@ For other platforms, figure out the equivalent installation steps.
   and rendered using https://asciidoctor.org/[asciidoctor].
   Diagrams are written in https://graphviz.org/documentation/[graphviz DOT] format.
 . Run `make docs` to render your changes as HTML in `docs/`. Preview your changes using a browser.
-. Run `make all` to re-generate eve	 rything and validate links (link checking takes a minute or two).
+. Run `make all` to re-generate everything and validate links (link checking takes a minute or two).
 . Submit a link:{repo}/pulls[pull-request] with your changes, and a brief description of why you made them. +
 
 The pull request will be discussed and revised before merging using the GitHub review process.

@@ -6,7 +6,8 @@ The ViaQ project provides components for https://docs.openshift.com/container-pl
 
 This site documents the architecture and some of the internal details of Openshift Logging.
 
-This content is intended for developers, doc writers, and contributors working on the project. However, it may be of interest to those who want to learn more about the internal details.
+This content is intended for developers, doc writers, and contributors working on the project.
+It may be of interest to those who want to learn more about the internal details.
 
 TIP: To contribute to this site, see https://github.com/ViaQ/documentation
 
@@ -14,7 +15,6 @@ TIP: To contribute to this site, see https://github.com/ViaQ/documentation
 
 * link:architecture/index.html[Logging architecture overview]
 * xref:data_model/public/data_model.adoc[Log record data model for users]
-** xref:data_model/private/data_model.adoc[Extended data model with private fields for internal use]
 
 == Other Resources
 
@@ -23,10 +23,7 @@ The project spans several repositories:
 * link:https://github.com/ViaQ[ViaQ] contains repositories for components.
 * https://github.com/ViaQ/documentation[ViaQ/documentation] contains this site.
 * link:https://github.com/openshift/cluster-logging-operator[Cluster Logging Operator] deploys log collection and forwarding in a cluster.
-* link:https://github.com/openshift/elasticsearch-operator[Elasticsearch Operator] deploys Elasticsearch as a log store.
-* link:https://github.com/openshift/origin-aggregated-logging[Origin Aggregated Logging] has operands managed by the above operators.
 
 Other project resources:
 
 * link:https://issues.redhat.com/projects/LOG/issues/LOG-96?filter=allopenissues[Planning and issue tracking]
-* link:https://github.com/openshift/enhancements/tree/master/enhancements/cluster-logging[Enhancement proposals]

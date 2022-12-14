@@ -16,7 +16,7 @@ Trace:: Data attached to request-response _scopes_ to track the progress and out
 
 Correlation means associating different types of signal, for example:
 
-* I have an alert saying that an application is in t.rouble.
+* I have an alert saying that an application is in trouble.
   I want to see logs from that application around the time of the alert.
 * I have a log entry showing that a request failed.
   I want to see traces for the entire life-cycle of that request and dependent requests.

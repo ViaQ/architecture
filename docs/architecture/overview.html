@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.15">
+<meta name="generator" content="Asciidoctor 2.0.17">
 <title>Overview</title>
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -425,10 +425,99 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_overview">Overview</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The cluster logging system is composed of the following components.
+They can be deployed together as a complete in-cluster logging solution,
+or separately to store logs outside the cluster.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Collector</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>collect logs from containers and nodes.</p>
+</li>
+<li>
+<p>add meta-data describing where the logs came from.</p>
+</li>
+<li>
+<p>forward annotated logs to an in-cluster Loki store</p>
+</li>
+<li>
+<p>forward logs off-cluster: <code>syslog</code>, <code>kafka</code>, <code>cloudwatch</code> and more.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Store</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>aggregates logs from the entire cluster in a central place.</p>
+</li>
+<li>
+<p>accepts complex queries to select, combine and filter logs.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1">Console</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>displays logs selected by simple menu selections or complex store queries</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="sect2">
+<h3 id="_cluster_logging_operator">Cluster Logging Operator</h3>
+<div class="paragraph">
+<p>The <strong>Cluster Logging Operator (CLO)</strong> provides the <em>ClusterLogForwarder</em> (CLF) resource.</p>
+</div>
+<div class="paragraph">
+<p>This is a simple but flexible API to describe "what you want": which logs to forward, and where to send them.</p>
+</div>
+<div class="paragraph">
+<p>The operator generates a more complex "how to do it" configuration and deploys a <code>daemonset</code> running
+<a href="https://vector.dev/">DataDog Vector</a> daemons on each cluster node.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="legend.svg" alt="legend">
+</div>
+<div class="title">Figure 1. Key to diagrams</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="overview.svg" alt="overview">
+</div>
+<div class="title">Figure 2. Operators and APIs</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="node.svg" alt="node">
+</div>
+<div class="title">Figure 3. Log collection inside the node</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lokistack_operator">LokiStack Operator</h3>
+<div class="paragraph">
+<p>The <strong>LokiStack operator</strong> deploys a <a href="https://grafana.com/oss/loki/">Grafana Loki</a> log store to
+collect aggregated logs and a proxy to control access to logs based on Openshift credentials.</p>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_log_types">Log types</h3>
 <div class="paragraph">
-<p>There are three main <em>log types</em></p>
+<p>Logs are categorized into three types:</p>
 </div>
 <div class="hdlist">
 <table>
@@ -445,7 +534,16 @@ Application
 Infrastructure
 </td>
 <td class="hdlist2">
-<p>Node logs and container logs from <code>kube-<strong></code> and <code>openshift-</strong></code> namespaces.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Container logs from infrastructure containers in <code>kube-<strong></code> and <code>openshift-</strong></code> namespaces.</p>
+</li>
+<li>
+<p>Node logs from <code>journald</code>.</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 <tr>
@@ -458,147 +556,29 @@ Audit
 </tr>
 </table>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_components">Components</h3>
-<div class="paragraph">
-<p>The logging system breaks down into 4 logical components:</p>
-</div>
-<div class="hdlist">
+<div class="admonitionblock note">
 <table>
 <tr>
-<td class="hdlist1">
-collector
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
 </td>
-<td class="hdlist2">
-<p>Read container log data from each node.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-forwarder
-</td>
-<td class="hdlist2">
-<p>Forward log data to configured outputs.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-store
-</td>
-<td class="hdlist2">
-<p>Store log data for analysis This is the default output for the <em>forwarder</em>.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-exploration
-</td>
-<td class="hdlist2">
-<p>UI tools (GUI and command line) to search, query and view stored logs</p>
+<td class="content">
+<em>Container logs</em> are the <code>stdout</code> and <code>stderr</code> output from containers in pods in the cluster.<br>
+ <em>Node logs</em> are from the cluster node operating system, <code>journald</code> and <code>/var/log/</code>
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_operators_and_custom_resources">Operators and Custom Resources</h3>
-<div class="imageblock">
-<div class="content">
-<img src="legend.svg" alt="legend">
-</div>
-<div class="title">Figure 1. Key to diagrams</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="overview.svg" alt="overview">
-</div>
-<div class="title">Figure 2. Operators and APIs</div>
-</div>
-<div class="paragraph">
-<p>The <strong>cluster logging operator (CLO)</strong> implements the following custom resources:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">ClusterLogging (CL)</dt>
-<dd>
-<p>Deploys the <em>collector</em> and <em>forwarder</em> which currently are both implemented by a <em>daemonset</em> running <em>Fluentd</em> on each node.</p>
-</dd>
-<dt class="hdlist1">ClusterLogForwarder (CLF)</dt>
-<dd>
-<p>Generate Fluentd configuration to forward logs per user configuration.</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<p>The <strong>elasticsearch logging operator (ELO)</strong> implements the following custom resources:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">ElasticSearch</dt>
-<dd>
-<p>Configure and deploy an Elasticsearch instance as the default log store.</p>
-</dd>
-<dt class="hdlist1">Kibana</dt>
-<dd>
-<p>Configure and deploy Kibana instance to search, query and view logs.</p>
-</dd>
-</dl>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_runtime_behavior">Runtime behavior</h3>
-<div class="imageblock">
-<div class="content">
-<img src="node.svg" alt="node">
-</div>
-<div class="title">Figure 3. Collection and forwarding</div>
-</div>
-<div class="paragraph">
-<p>The <em>container runtime interface</em> (CRI-O) on each node writes container logs to files.
-The file names include the container&#8217;s UID, namespace, name and other data.
-We also collect per-node logs from the Linux <em>journald</em>.</p>
-</div>
-<div class="paragraph">
-<p>The CLO deploys a Fluentd daemon on each node which acts both as a <em>collector</em> (reading log files) and as a <em>forwarder</em> (sending log data to configured outputs)</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_log_entries">Log Entries</h3>
-<div class="paragraph">
-<p>The term <em>log</em> is overloaded so we&#8217;ll use these terms to clarify:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">Log</dt>
-<dd>
-<p>A stream of text containing a sequence of <em>log entries</em>.</p>
-</dd>
-<dt class="hdlist1">Log Entry</dt>
-<dd>
-<p>Usually a single line of text in a log, but see <a href="#multi-line-entries">[multi-line-entries]</a></p>
-</dd>
-<dt class="hdlist1">Container Log</dt>
-<dd>
-<p>Produced by CRI-O, combining stdout/stderr output from process running in a single container.</p>
-</dd>
-<dt class="hdlist1">Node Log</dt>
-<dd>
-<p>Produced by journald or other per-node agent from non-containerized processes on the node.</p>
-</dd>
-<dt class="hdlist1">Structured Log</dt>
-<dd>
-<p>A log where each entry is a JSON object (map), written as a single line of text.</p>
-</dd>
-</dl>
-</div>
+<h3 id="_normalization">Normalization</h3>
 <div class="paragraph">
 <p>Kubernetes does not enforce a uniform format for logs.
 Anything that a containerized process writes to <code>stdout</code> or <code>stderr</code> is considered a log.
 This "lowest common denominator" approach allows pre-existing applications to run on the cluster.</p>
 </div>
 <div class="paragraph">
-<p>Traditional log formats write entries as ordered fields, but the order, field separator, format and meaning of fields varies.</p>
+<p>Traditional log formats write entries as ordered fields; but the order, field separator, format and meaning of fields varies.</p>
 </div>
 <div class="paragraph">
 <p><em>Structured logs</em> write log entries as JSON objects on a single line.
@@ -607,75 +587,14 @@ However names, types, and meaning of fields in the JSON object varies between ap
 <div class="paragraph">
 <p>The <a href="https://github.com/kubernetes/enhancements/tree/master/keps/sig-instrumentation/1602-structured-logging">Kubernetes Structured Logging proposal</a> will standardize the log format for <em>some</em> k8s components, but there will still be diverse log formats from non-k8s applications running on the cluster.</p>
 </div>
-<div class="sect3">
-<h4 id="_metadata_envelopes_and_forwarding">Metadata, Envelopes and Forwarding</h4>
 <div class="paragraph">
-<p><em>Metadata</em> is additional data about a log entry (original host, container-id, namespace etc.) that we add as part of forwarding the logs. We use these terms for clarity:</p>
-</div>
-<div class="hdlist">
-<table>
-<tr>
-<td class="hdlist1">
-Message
-</td>
-<td class="hdlist2">
-<p>The original, unmodifed log entry.</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-Envelope
-</td>
-<td class="hdlist2">
-<p>Include metadata fields and a <code>message</code> field with the original <em>message</em></p>
-</td>
-</tr>
-</table>
+<p>The collector adds meta-data to <em>container</em> logs as per the cluster logging <a href="../data_model/public/data_model.html"> data model</a>.</p>
 </div>
 <div class="paragraph">
-<p>We usually use JSON notation for the envelope since it&#8217;s the most widespread convention.</p>
+<p>Infrastructure node logs lack the <code>kubernetes</code> section since they are not associated with a container.</p>
 </div>
 <div class="paragraph">
-<p>However, we do and will implement other output formats formats; for example a syslog message with its <code>MSG</code> and <code>STRUCTURED-DATA</code> sections is an different way to encode the equivalent envelope data.</p>
-</div>
-<div class="paragraph">
-<p>Depending on the output type, we may forward entries as <em>_message</em> only, full <em>envelope</em>, or the users choice.</p>
-</div>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-Not all of the documented model is in active use. Review is needed.
-The <code>labels</code> field is "flattened" before forwarding to Elasticsearch.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_multi_line_entries">Multi-line Entries</h4>
-<div class="paragraph">
-<p>Log entries are usually a single line of text, but they can consist of more than one line for several reasons:</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">CRI-O</dt>
-<dd>
-<p>CRI-O reads chunks of text from applications, not single lines. If a line gets split between chunks, CRI-O writes each part as a separate line in the log file with a "partial" flag so they can be correctly re-assembled.</p>
-</dd>
-<dt class="hdlist1">Stack traces</dt>
-<dd>
-<p>Programs in languages like Java, Ruby or Python often dump multi-line stack traces into the log. The entire stack trace needs to be kept together when forwarded to be useful.</p>
-</dd>
-<dt class="hdlist1">JSON Objects</dt>
-<dd>
-<p>A JSON object <em>can</em> be written on multiple lines, although structured logging libraries typically don&#8217;t do this.</p>
-</dd>
-</dl>
-</div>
+<p>Audit and k8s event logs are structured logs that contain their own meta-data, they are forwarded unmodified.</p>
 </div>
 </div>
 </div>

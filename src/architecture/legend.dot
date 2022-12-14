@@ -4,6 +4,6 @@ digraph {
   edge [fontname="helvetica" fontsize=12]
   node [style=filled]
   API [shape=hexagon fillcolor=orchid]
-  Container [shape=box fillcolor=cyan]
+  Pod [shape=box fillcolor=cyan]
   Store [shape=cylinder fillcolor=beige]
 }

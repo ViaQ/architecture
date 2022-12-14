@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.15">
+<meta name="generator" content="Asciidoctor 2.0.17">
 <title>Log Record Fields</title>
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -534,6 +534,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_systemd_u_syslog_pid">systemd.u.SYSLOG_PID</a></li>
 <li><a href="#_systemd_u_result">systemd.u.RESULT</a></li>
 <li><a href="#_systemd_u_unit">systemd.u.UNIT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_aushape">aushape</a>
+<ul class="sectlevel2">
+<li><a href="#_aushape_serial">aushape.serial</a></li>
+<li><a href="#_aushape_node">aushape.node</a></li>
+<li><a href="#_aushape_error">aushape.error</a></li>
+<li><a href="#_aushape_trimmed">aushape.trimmed</a></li>
+<li><a href="#_aushape_text">aushape.text</a></li>
+<li><a href="#_aushape_data">aushape.data</a>
+<ul class="sectlevel3">
+<li><a href="#_aushape_data_avc">aushape.data.avc</a></li>
+<li><a href="#_aushape_data_execve">aushape.data.execve</a></li>
+<li><a href="#_aushape_data_netfilter_cfg">aushape.data.netfilter_cfg</a></li>
+<li><a href="#_aushape_data_obj_pid">aushape.data.obj_pid</a></li>
+<li><a href="#_aushape_data_path">aushape.data.path</a></li>
 </ul>
 </li>
 </ul>
@@ -2405,6 +2423,224 @@ Data type
 </td>
 <td class="hdlist2">
 <p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aushape">aushape</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Audit events converted with aushape.  For more information please see <a href="https://github.com/Scribery/aushape" class="bare">https://github.com/Scribery/aushape</a></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>group</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_aushape_serial">aushape.serial</h3>
+<div class="paragraph">
+<p>Audit event serial number</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>long</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aushape_node">aushape.node</h3>
+<div class="paragraph">
+<p>Name of the host where the audit event occurred</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aushape_error">aushape.error</h3>
+<div class="paragraph">
+<p>The error aushape encountered while converting the event</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>text</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aushape_trimmed">aushape.trimmed</h3>
+<div class="paragraph">
+<p>An array of JSONPath expressions relative to the event object, specifying objects/arrays with (some) contents removed as the result of event size limiting. Empty string means event itself. Empty array means trimming occurred at unspecified objects/arrays.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>keyword</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aushape_text">aushape.text</h3>
+<div class="paragraph">
+<p>An array log record strings representing the original audit event</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>text</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aushape_data">aushape.data</h3>
+<div class="paragraph">
+<p>Parsed audit event data</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>group</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_aushape_data_avc">aushape.data.avc</h4>
+<div class="paragraph">
+<p>⚠ No description.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>nested</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aushape_data_execve">aushape.data.execve</h4>
+<div class="paragraph">
+<p>⚠ No description.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>text</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aushape_data_netfilter_cfg">aushape.data.netfilter_cfg</h4>
+<div class="paragraph">
+<p>⚠ No description.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>nested</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aushape_data_obj_pid">aushape.data.obj_pid</h4>
+<div class="paragraph">
+<p>⚠ No description.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>nested</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aushape_data_path">aushape.data.path</h4>
+<div class="paragraph">
+<p>⚠ No description.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Data type
+</td>
+<td class="hdlist2">
+<p>nested</p>
 </td>
 </tr>
 </table>

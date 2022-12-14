@@ -1,43 +1,51 @@
 // Note: prefix "cluster_" is part of the grapviz language, it indicates a boxed
 // group of nodes. All other uses of "cluster" refer to an openshift cluster.
 digraph {
-  rankdir=TD
+	rankdir=TD
 
-  graph [fontname="helvetica" fontsize=16]
-  node [fontname="helvetica" fontsize=14 style=filled]
-  edge [fontname="helvetica" fontsize=12]
+	graph [fontname="helvetica" fontsize=16]
+	node [fontname="helvetica" fontsize=14 style=filled]
+	edge [fontname="helvetica" fontsize=12]
 
-  // APIs
-  node [shape=hexagon fillcolor=orchid]
-  cl[label=ClusterLogging]
-  clf[label=ClusterLogForwarder]
-  es[label=Elasticsearch]
-  kb[label=Kibana]
+	// APIs
+	node [shape=hexagon fillcolor=orchid]
+	clf[label=ClusterLogForwarder]
+	ds[label=DaemonSet]
+	lokistack[label=LokiStack]
 
-  // Containers
-  node [shape=box fillcolor=cyan]
-  fd[label="Fluentd\nDaemonset\n(Pod per node)"]
+	// Nodes
+	node [shape=box fillcolor=cyan]
+	subgraph cluster_n1 { label="Node 1" n1[label=vectord] }
+	subgraph cluster_n2 { label="Node 2" n2[label=vectord] }
+	subgraph cluster_n3 { label="Node 3" n3[label=vectord] }
 
-  // Stores
-  node [shape=cylinder fillcolor=beige]
-  store[label="Log\nStore"]
 
-  { rank=max ui[shape=oval label="Kibana\nUser Interface" fillcolor=aliceblue] }
+	// Stores
+	node [shape=cylinder fillcolor=beige]
+	lokistore[label="\nLoki Log\nStore"]
 
-  // Layout
-  subgraph cluster_clo{
-    label="Cluster Logging Operator"
-    cl clf
-  }
+	{ rank=max console[shape=oval label="Openshift Logging Console" fillcolor=aliceblue] }
 
-  subgraph cluster_elo {
-    label="Elasticsearch Operator"
-    es kb
-  }
+	// Operators
+	subgraph {		// Group operators at min rank
+		rank=min
+		cluster=true
+		pencolor=none
+		subgraph clo{
+			pencolor=black
+			label="Cluster Logging Operator"
+			clf
+		}
+		subgraph lokiop {
+			label="LokiStack Operator"
+			pencolor=black
+			lokistack
+		}
+        }
+	lokistack -> { lokistore }[label=control]
+	clf -> ds [label=configure]
+	ds -> { n1 n2 n3 }[label=deploy]
+	{ n1 n2 n3 } -> lokistore[label="forward"]
 
-  clf -> fd [label=configures]
-  cl -> { es kb fd }[label=creates]
-  es->store[label="controls"]
-  kb->ui[label="provides"]
-  ui->store[label=browses]
+	console->lokistore[label="browse and query"]
 }
